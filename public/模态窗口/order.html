@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>Modal Login Window Demo</title>
+  <link rel="stylesheet" type="text/css" media="all" href="style/style.css">
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+  <!-- jQuery plugin leanModal under MIT License http://leanmodal.finelysliced.com.au/ -->
+</head>
+
+<body>
+  <div id="w">
+    <div id="content">
+      <h1>Welcome to the Site!</h1>
+      <p>Just click the login link below to expand the modal window. This is only a demo so the input form will not load anything, but it is easy to connect into a backend system.</p>
+      <center><a href="#order" id="modaltrigger">Modal Login</a></center>
+    </div>
+  </div>
+  <div id="order" style="display:none;">
+    <form id="orderform" name="orderform" method="post" action="order.html">
+      <div class="o-header">
+        <span class="title">订单详情</span>
+        <div class="o-close">
+          <img src="images/关闭2.png" alt="">
+          <p>关闭</p>
+        </div>
+      </div>
+      <div class="o-top">
+        <p>
+          <span class="span1">订单支付总额：</span>
+          <span class="span2">￥</span><span class="span3">5280</span>
+        </p>
+      </div>
+      <div class="route">
+        <div class="bg">
+          <p class="info">线路信息</p>
+        </div>
+        <ul>
+          <li>
+            <span>自驾团名称：云南落地自驾行摄之旅</span>
+          </li>
+          <li>
+            <span>出游日期：2016-01-17</span>
+          </li>
+          <li>
+            <span>成人：1人</span>
+            <span class="route-span2">儿童：0人</span>
+          </li>
+          <li>
+            <span>房间：2人间,愿意拼房</span>
+          </li>
+        </ul>
+      </div>
+      <div class="contacts">
+        <div class="bg">
+          <p class="info">联系人信息</p>
+        </div>
+        <ul>
+          <li>
+            <span>姓名：</span>
+            <span class="con-li1-2">罗小小</span>
+            <span class="con-li1-3">性别：</span>
+            <span class="con-li1-4">女</span>
+          </li>
+          <li class="con-li2">
+            <span>手机号码：</span>
+            <span class="con-li2-2">18270837899</span>
+            <span class="con-li2-3">邮箱：</span>
+            <span>2689326087@qq.com</span>
+          </li>
+        </ul>
+      </div>
+      <div class="tourist">
+        <div class="bg">
+          <p class="info">游客信息</p>
+        </div>
+        <div class="tour1">
+          <span class="span1">游客1</span>
+          <ul>
+            <li>
+              <span>游客类型：</span>
+              <span class="sp1-2">成人</span>
+              <span class="sp1-3">姓名：</span>
+              <span class="sp1-4">罗小小</span>
+            </li>
+            <li>
+              <span>性别：</span>
+              <span class="sp2-2">女</span>
+              <span class="sp2-3">手机号：</span>
+              <span class="sp2-4">18270837899</span>
+            </li>
+            <li>
+              <span>证件：</span>
+              <span class="sp3-2">护照</span>
+              <span class="sp3-3">452726199102031552</span>
+            </li>
+          </ul>
+        </div>
+        <hr>
+        <div class="tour2">
+          <span class="span1">游客2</span>
+          <ul>
+            <li>
+              <span>游客类型：</span>
+              <span class="sp1-2">成人</span>
+              <span class="sp1-3">姓名：</span>
+              <span class="sp1-4">罗笑笑</span>
+            </li>
+            <li>
+              <span>性别：</span>
+              <span class="sp2-2">女</span>
+              <span class="sp2-3">手机号：</span>
+              <span class="sp2-4">18270837898</span>
+            </li>
+            <li>
+              <span>证件：</span>
+              <span class="sp3-2">护照</span>
+              <span class="sp3-3">452726199302031552</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="insure">
+        <div class="bg">
+          <p class="info">保险</p>
+        </div>
+        <ul>
+          <li>
+            <span>平安爱自驾境外长线保险</span>
+            <span class="insure-sp2">经典型2份</span>
+            <span class="insure-sp3"><span>￥177</span>/一份</span>
+          </li>
+          <li>
+            <hr class="insure-hr">
+          </li>
+          <li class="insure-li2">
+            <span>平安爱自驾境外长线保险</span>
+            <span class="insure-sp2">经典型2份</span>
+            <span class="insure-sp3"><span>￥177</span>/一份</span>
+          </li>
+        </ul>
+      </div>
+      <div class="book">
+        <div class="bg">
+          <p class="info">预订信息</p>
+        </div>
+        <ul>
+          <li>
+            <span>发票信息：</span>
+            <span class="book-sp2">是否需要发票：是</span>
+          </li>
+          <li>
+            <span>发票抬头：</span>
+            <span class="book-sp2">无</span>
+            <span class="book-sp3">发票明细：</span>
+            <span class="book-sp4">会议费</span>
+          </li>
+          <li>
+            <span>配送地址：</span>
+            <span class="book-sp2">北京市朝阳区北辰东路八号汇园国际k座</span>
+          </li>
+        </ul>
+      </div>
+      <div class="more">
+        <div class="bg">
+          <p class="info">更多要求</p>
+        </div>
+        <p>温馨的住宿和美味的餐食</p>
+      </div>
+    </form>
+  </div>
+  
+<script type="text/javascript">
+  $(function(){ 
+    $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal"});
+  });
+  $(".o-close").click(function(){
+      $("#lean_overlay").fadeOut(200);
+      $("#order").css({"display":"none"});
+  });
+
+
+</script>
+</body>
+</html>

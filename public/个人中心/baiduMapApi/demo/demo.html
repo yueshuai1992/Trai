@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Map api</title>
+    <style>
+    *{
+        margin:0px;
+        padding:0px;
+    }
+    #map {
+        min-width:1000px;
+        min-height:667px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script src="../lib/jQuery.js"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=x78oVekBLBQQ6VIvPoX7eNDj"></script>
+    <script src="../lib/nativeAppAdapter.js"></script>
+    <!-- // <script src="../lib/bdmapApi.js"></script> -->
+    <script src="../src/jquery.baiduMapApi.js"></script>
+    <script>
+    $('#map').bdmap({
+        center: {
+            lat: 39.542637,
+            lng: 116.232922
+        }
+    });
+    </script>
+</body>
+
+</html>

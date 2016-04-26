@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+
+
+
+
+  <script type="text/javascript" src="demo/js/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/jquery.raty.min.js"></script>
+
+
+
+
+
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>Modal Login Window Demo</title>
+  <link rel="stylesheet" type="text/css" media="all" href="style/style.css">
+  <!-- script type="text/javascript" src="js/jquery-1.9.1.min.js"></script -->
+  <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+  <!-- jQuery plugin leanModal under MIT License http://leanmodal.finelysliced.com.au/ -->
+</head>
+
+<body>
+  <div id="w">
+    <div id="content">
+      <center><a href="#evaluate" id="modaltrigger">Modal Login</a></center>
+    </div>
+  </div>
+  <div id="evaluate" style="display:none;">
+    <div class="e-close">
+      <img src="images/关闭2.png" alt="">
+      <p>关闭</p>
+    </div>
+    <form id="evaluateform" name="evaluateform" method="post" action="evaluate.html">
+      <div class="e-left">
+        <p>行 程 点 评</p>
+        <div id="txtfield4">
+          <textarea name="text" id="text"></textarea>
+          <div class="showpic">
+            <div class="pic">
+              <span>晒图片</span>
+            </div>
+            <input type="button" name="addpic" id="addpic" tabindex="1">
+            <span class="picnum">0/5</span>
+          </div>
+        </div>
+        <input type="submit" name="e-sub" id="e-sub" value="提交评论" tabindex="2">
+      </div>
+
+      <div class="e-right">
+        <ul>
+          <li>
+            <span>行程安排:</span>
+            <input type="radio" name="radio1">满意
+            <input type="radio" name="radio1">不满意
+            <input type="radio" name="radio1">一般
+          </li>
+          <li>
+            <span>住宿餐食:</span>
+            <input type="radio" name="radio2">满意
+            <input type="radio" name="radio2">不满意
+            <input type="radio" name="radio2">一般
+          </li>
+          <li>
+            <span>旅行交通:</span>
+            <input type="radio" name="radio3">满意
+            <input type="radio" name="radio3">不满意
+            <input type="radio" name="radio3">一般
+          </li>
+          <li>
+            <span>综合评价:</span>
+            <div class="demo">
+              <div id="size-demo"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </form>
+  </div>
+<script type="text/javascript">
+  $(function(){
+    $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal"});
+  });
+  $(".e-close").click(function(){
+      $("#lean_overlay").fadeOut(200);
+      $("#evaluate").css({"display":"none"});
+  });
+  $('#size-demo').raty({
+        path     : 'demo/img',
+        cancel   : true,
+        cancelOff: 'cancel-off-big.png',
+        cancelOn : 'cancel-on-big.png',
+        half     : true,
+        size     : 24,
+        starHalf : 'star-half-big.png',
+        starOff  : 'star-off-big.png',
+        starOn   : 'star-on-big.png'
+  });
+</script>
+</body>
+</html>

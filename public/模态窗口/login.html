@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>Modal Login Window Demo</title>
+  <link rel="stylesheet" type="text/css" media="all" href="style/style.css">
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+  <!-- jQuery plugin leanModal under MIT License http://leanmodal.finelysliced.com.au/ -->
+</head>
+
+<body>
+  <div id="w">
+    <div id="content">
+      <h1>Welcome to the Site!</h1>
+      <p>Just click the login link below to expand the modal window. This is only a demo so the input form will not load anything, but it is easy to connect into a backend system.</p>
+      <center><a href="#loginmodal" class="flatbtn" id="modaltrigger">Modal Login</a></center>
+    </div>
+  </div>
+  <div id="loginmodal" style="display:none;">
+    <img src="images/关闭.png" alt="" class="close">
+    <img src="images/logo2.png" alt="" class="logo">
+    <form id="loginform" name="loginform" method="post" action="login.html">
+      <input type="text" name="username" id="username" class="txtfield1"  placeholder="邮箱/手机/用户名">
+      <input type="password" name="password" id="password" class="txtfield2" placeholder="密码">
+      <div class="center"><input type="submit" name="loginbtn" id="loginbtn" value="登录" tabindex="3" class="flatbtn-blu"></div>
+      <div class="forgetp">
+        <div class="forgetp-s">
+          <a href="" class="forgetp-a">忘记密码</a>
+          <p><span>还没有账号？</span><a href="">免费注册</a></p>
+        </div>
+        <div class="hr">
+          <hr class="hr1">
+          <span>其他报名方式</span>
+          <hr class="hr2">
+        </div>
+      </div>
+      <div class="center"><input type="submit" name="loginbtn2" id="loginbtn2" value="不登录,直接报名>" tabindex="3" class="flatbtn-blu"></div>
+    </form>
+  </div>
+<script type="text/javascript">
+  $(function(){ 
+    $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal"});
+  });
+  $(".close").click(function(){
+      $("#lean_overlay").fadeOut(200);
+      $("#loginmodal").css({"display":"none"});
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width; initial-scale=1; maximum-scale=1" name="viewport">
+	<meta content="Washington Botelho" name="author">
+	<meta content="jQuery Raty - A Star Rating Plugin" name="description">
+	<meta content="jquery,plugin,rating,raty,voto,star,staring,classificacao,classificar,votar,plugin" name="keywords">
+	<link type="text/css" rel="stylesheet" href="demo/css/application.css">
+	<script type="text/javascript" src="demo/js/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/jquery.raty.min.js"></script>
+	<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+
+	<meta charset="UTF-8">
+	<title>个人中心</title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" href="style/个人中心.css">
+	<link rel="stylesheet" href="style/cityChange.css" type="text/css"/>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+</head>
+<body>
+	<!-- 以下代码实现evaluate模态窗口 -->
+	<div id="mfyevaluate" style="display:none;">
+	    <div class="mfye-close">
+	      <img src="img/关闭2.png" alt="">
+	      <p>关闭</p>
+	    </div>
+	    <form id="mfyevaluateform" name="mfyevaluateform" method="post" action="个人中心.html">
+	      <div class="mfye-left">
+	        <p>行 程 点 评</p>
+	        <div id="mfytxtfield4">
+	          <textarea name="mfytext" id="mfytext"></textarea>
+	          <div class="mfyshowpic">
+	            <div class="mfypic">
+	              <span>晒图片</span>
+	            </div>
+	            <input type="button" name="mfyaddpic" id="mfyaddpic" tabindex="1">
+	            <span class="mfypicnum">0/5</span>
+	          </div>
+	        </div>
+	        <input type="submit" name="mfye-sub" id="mfye-sub" value="提交评论" tabindex="2">
+	      </div>
+	      <div class="mfye-right">
+	        <ul>
+	          <li>
+	            <span>行程安排:</span>
+	            <input type="radio" name="mfyradio1">满意
+	            <input type="radio" name="mfyradio1">不满意
+	            <input type="radio" name="mfyradio1">一般
+	          </li>
+	          <li>
+	            <span>住宿餐食:</span>
+	            <input type="radio" name="mfyradio2">满意
+	            <input type="radio" name="mfyradio2">不满意
+	            <input type="radio" name="mfyradio2">一般
+	          </li>
+	          <li>
+	            <span>旅行交通:</span>
+	            <input type="radio" name="mfyradio3">满意
+	            <input type="radio" name="mfyradio3">不满意
+	            <input type="radio" name="mfyradio3">一般
+	          </li>
+	          <li>
+	            <span>综合评价:</span>
+	            <div class="mfydemo">
+	              <div id="mfysize-demo"></div>
+	            </div>
+	          </li>
+	        </ul>
+	      </div>
+	    </form>
+  </div>
+	<!-- 以上代码实现evaluate模态窗口 -->
+
+
+	<!-- 以下代码实现order模态窗口 -->
+  <div id="mfyorder" style="display:none;">
+    <form id="mfyorderform" name="mfyorderform" method="post" action="个人中心.html">
+      <div class="mfyo-header">
+        <span class="mfytitle">订单详情</span>
+        <div class="mfyo-close">
+          <img src="img/关闭2.png" alt="">
+          <p>关闭</p>
+        </div>
+      </div>
+      <div class="mfyo-top">
+        <p>
+          <span class="mfyspan1">订单支付总额：</span>
+          <span class="mfyspan2">￥</span><span class="mfyspan3">5280</span>
+        </p>
+      </div>
+      <div class="mfyroute">
+        <div class="mfybg">
+          <p class="mfyinfo">线路信息</p>
+        </div>
+        <ul>
+          <li>
+            <span>自驾团名称：云南落地自驾行摄之旅</span>
+          </li>
+          <li>
+            <span>出游日期：2016-01-17</span>
+          </li>
+          <li>
+            <span>成人：1人</span>
+            <span class="mfyroute-span2">儿童：0人</span>
+          </li>
+          <li>
+            <span>房间：2人间,愿意拼房</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mfycontacts">
+        <div class="mfybg">
+          <p class="mfyinfo">联系人信息</p>
+        </div>
+        <ul>
+          <li>
+            <span>姓名：</span>
+            <span class="mfycon-li1-2">罗小小</span>
+            <span class="mfycon-li1-3">性别：</span>
+            <span class="mfycon-li1-4">女</span>
+          </li>
+          <li class="mfycon-li2">
+            <span>手机号码：</span>
+            <span class="mfycon-li2-2">18270837899</span>
+            <span class="mfycon-li2-3">邮箱：</span>
+            <span>2689326087@qq.com</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mfytourist">
+        <div class="mfybg">
+          <p class="mfyinfo">游客信息</p>
+        </div>
+        <div class="mfytour1">
+          <span class="mfyspan1">游客1</span>
+          <ul>
+            <li>
+              <span>游客类型：</span>
+              <span class="mfysp1-2">成人</span>
+              <span class="mfysp1-3">姓名：</span>
+              <span class="mfysp1-4">罗小小</span>
+            </li>
+            <li>
+              <span>性别：</span>
+              <span class="mfysp2-2">女</span>
+              <span class="mfysp2-3">手机号：</span>
+              <span class="mfysp2-4">18270837899</span>
+            </li>
+            <li>
+              <span>证件：</span>
+              <span class="mfysp3-2">护照</span>
+              <span class="mfysp3-3">452726199102031552</span>
+            </li>
+          </ul>
+        </div>
+        <hr>
+        <div class="mfytour2">
+          <span class="mfyspan1">游客2</span>
+          <ul>
+            <li>
+              <span>游客类型：</span>
+              <span class="mfysp1-2">成人</span>
+              <span class="mfysp1-3">姓名：</span>
+              <span class="mfysp1-4">罗笑笑</span>
+            </li>
+            <li>
+              <span>性别：</span>
+              <span class="mfysp2-2">女</span>
+              <span class="mfysp2-3">手机号：</span>
+              <span class="mfysp2-4">18270837898</span>
+            </li>
+            <li>
+              <span>证件：</span>
+              <span class="mfysp3-2">护照</span>
+              <span class="mfysp3-3">452726199302031552</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mfyinsure">
+        <div class="mfybg">
+          <p class="mfyinfo">保险</p>
+        </div>
+        <ul>
+          <li>
+            <span>平安爱自驾境外长线保险</span>
+            <span class="mfyinsure-sp2">经典型2份</span>
+            <span class="mfyinsure-sp3"><span>￥177</span>/一份</span>
+          </li>
+          <li>
+            <hr class="mfyinsure-hr">
+          </li>
+          <li class="mfyinsure-li2">
+            <span>平安爱自驾境外长线保险</span>
+            <span class="mfyinsure-sp2">经典型2份</span>
+            <span class="mfyinsure-sp3"><span>￥177</span>/一份</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mfybook">
+        <div class="mfybg">
+          <p class="mfyinfo">预订信息</p>
+        </div>
+        <ul>
+          <li>
+            <span>发票信息：</span>
+            <span class="mfybook-sp2">是否需要发票：是</span>
+          </li>
+          <li>
+            <span>发票抬头：</span>
+            <span class="mfybook-sp2">无</span>
+            <span class="mfybook-sp3">发票明细：</span>
+            <span class="mfybook-sp4">会议费</span>
+          </li>
+          <li>
+            <span>配送地址：</span>
+            <span class="mfybook-sp2">北京市朝阳区北辰东路八号汇园国际k座</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mfymore">
+        <div class="mfybg">
+          <p class="mfyinfo">更多要求</p>
+        </div>
+        <p class="mfymore_p">温馨的住宿和美味的餐食</p>
+      </div>
+    </form>
+  </div>
+	<!-- 以上代码实现order模态窗口 -->
+
+
+	<!-- header -->
+	<div id="header">
+		<div class="header_box">
+			<div class="head_left">
+				<div  class="baidu">
+					<a href="baiduMapApi/demo/demo.html"><img class = "map" src="img/地址小灯.png" alt=""></a>
+					<a class="city">北京</a>
+					<a class="change">切换</a>
+				</div>
+				<div class="selcity" id="allCity" style="display:none;">
+					<table>
+						<tbody>
+							<tr>
+								<td ><a class="allCity" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全国：</a></td>
+								<td><a class="cur" > 北京</a></td>
+								<td><a href="#">天津</a></td>
+								<td><a href="#">河北</a></td>
+								<td><a href="#">山西</a></td>
+								<td><a href="#">内蒙古</a></td>
+								<td><a href="#">辽宁</a></td>
+								<td><a href="#">吉林</a></td>
+								<td><a href="#">黑龙江</a></td>
+								<td><a href="#">上海</a></td>
+							</tr>
+							<tr>
+								<td class="noCity">&nbsp;</td>
+								<td><a href="#">江苏</a></td>
+								<td><a href="#">浙江</a></td>
+								<td><a href="#">安徽</a></td>
+								<td><a href="#">福建</a></td>
+								<td><a href="#">江西</a></td>
+								<td><a href="#">山东</a></td>
+								<td><a href="#">河南</a></td>
+								<td><a href="#">湖北</a></td>
+								<td><a href="#">湖南</a></td>
+							</tr>
+							<tr>
+								<td class="noCity">&nbsp;</td>
+								<td><a href="#">广东</a></td>
+								<td><a href="#">广西</a></td>
+								<td><a href="#">海南</a></td>
+								<td><a href="#">重庆</a></td>
+								<td><a href="#">四川</a></td>
+								<td><a href="#">贵州</a></td>
+								<td><a href="#">云南</a></td>
+								<td><a href="#">西藏</a></td>
+								<td><a href="#">陕西</a></td>
+							</tr>
+							<tr>
+								<td class="noCity">&nbsp;</td>
+								<td><a href="#">西藏</a></td>
+								<td><a href="#">甘肃</a></td>
+								<td><a href="#">青海</a></td>
+								<td><a href="#">宁夏</a></td>
+								<td><a href="#">新疆</a></td>
+								<td class="noCity">&nbsp;</td>
+								<td class="noCity">&nbsp;</td>
+								<td class="noCity">&nbsp;</td>
+								<td class="noCity">&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="app">
+					<img class="pc" src="img/手机APP.png" alt="">
+					<a  class ="aPc" href="">下载手机APP</a>
+				</div>
+			</div>
+			<div class="head_right">
+		   		<img id="portrait" src="img/人头.jpg">
+		   		<div class="por_mass">
+		   			<p>浮生若梦_JKAy</p>
+		   			<ul class="personal">
+		   				<a href=""><li class="per_list1">个人主页</li></a>
+		   				<a href=""><li class="per_list2">我的邀请码</li></a>
+		   				<a href=""><li class="per_list3">消息中心</li></a>
+		   				<a href=""><li class="per_list4">注销</li></a>
+		   			</ul>
+		   		</div>
+		   		<a href="#mfyorder" class="mfymodaltrigger"><div class="Line">线路订制</div></a>
+			</div>
+		</div>
+	</div>
+	<div id="nav">
+		<div id ="nav_box">
+			<img src="img/logo.png" alt="">
+			<ul class="nav_box_ul">
+				<li>首页</li>
+				<li>目的地</li>
+				<li>线路</li>
+				<li>订制</li>
+				<li>自驾团</li>
+				<li class="xxx">摄影</li>
+				<li>互动</li>
+				<li>精选</li>
+				<li>预订</li>
+			</ul>
+		</div>
+	</div>
+	<div id="banner">
+		<div id="banner_box">
+			<div class="ban_B_L">
+				<div class="Big_por">
+					<img src="img/头像.png" alt="">
+				</div>
+				<ul class="massage">
+					<li class="name">浮生若梦_JKAy</li>
+					<li class="change">修改资料</li>
+					<li class="act">
+						<p class="Focus">
+							<span >
+								0
+							</span><br>
+							<a href="">关注</a>
+						</p>
+						<p class="fans">
+							<span>
+								0
+							</span><br>
+							<a href="">粉丝</a>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div class="ban_B_M">
+				<img src="img/二微码.jpg" alt="">
+				<p>扫一扫，关注我</p>
+			</div>
+			<div class="ban_B_R">
+				<div class="ban_pic">
+					<img src="img/个人中心页面会员_相机.png" alt="">
+					<p>发布照片</p>
+				</div>
+				<div class="ban_admin">
+					<img src="img/个人中心页面会员_page.png" alt="">
+					<p class="admin">管理互动</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="container">
+		<div id="con_box">
+			<div class="con_main">
+				<div class="con_main_top">
+					<div class="con_order">
+						<a href="">我的订单</a>
+					</div>
+					<ul class="con_or_list">
+						<a href=""><li class="list1">全部订单</li></a>
+						<a href=""><li>待出行</li></a>
+						<a href=""><li>待支付</li></a>
+						<a href=""><li>待评价</li></a>
+						<a href=""><li>已取消</li></a>
+					</ul>
+
+				</div>
+				<div class="con_main_mid">
+					<div class="con_massage">
+						<form class="form" action="" method="">
+				 			<select name="type" class="select1">
+				 				<option  value="1">按条件</option>
+				 				<option  value="2">订单金额</option>
+				 				<option  value="3">订单标题</option>
+				 			</select>
+				 			<input class="select2" name="key" type="text">
+				 			<select class="select3" id="status" name="status">
+				 				<option class="zi" value="1">状态</option>
+				 				<option  value="2">时间</option>
+				 				<option value="3">地点</option>
+				 			</select>
+				 			<img class="phone1" src="img/电话.png"><span  class="to">至</span>
+				 			<input class="select4"  id="status2" name="endtime" type="text"></input>
+				 			<img class="phone2" src="img/电话.png">
+				 			<input class="select5" name="key" type="text"  placeholder="单号"></input>
+				 			<li class="sou" type="submit" data-row="submit">搜索</li>
+				 		</form>
+					</div>
+					<div class="dist">
+			 			<ul class="order">
+			 				<li id="first">订单信息</li>
+			 				<li id="second">产品类型</li>
+			 				<li id="third">出游日期</li>
+			 				<li id="fourth">订单金额</li>
+			 				<li id="five">订单状态</li>
+			 				<li id="six">操作</li>
+			 			</ul>
+			 		</div>
+					<div class="orderList">
+				 			<div class="fom1">
+				 				<div class="top"><p id="dingdan1">订单编号:719551 预定时间:2015-12-29 12:04:00</p></div><div class="zero"></div>
+				 				<div class="di">
+				 					<ul class="dilist">
+				 						<li><img class="meili" src="img/魅力湘西过大年.jpg"></li>
+				 						<li class="a1"><p>[春节]<魅力湘西过大年><br/>湘西年夜饭，北京直飞</p></li>
+				 						<li class="a2">自驾游</li>
+				 						<li class="a3">2016-02-07</li>
+				 						<li class="a4">￥4568</li>
+				 						<li class="a5">待出行</li>
+				 						<li class="a6">
+				 							<div class="Achoo">取消</div>
+											<ul  class="Achoose">
+												<li class="choose2"><a href="../index自驾团在线支付页面.html">支付</a></li>
+												<li class="choose3"><a href="#mfyevaluate" class="mfymodaltrigger"><div class="Line">点评</div></a></li>
+												<li class="choose4"><a href="#mfyorder" class="mfymodaltrigger"><div class="Line">查看</div></a></li>
+											</ul>
+				 						<li>
+				 					</ul>
+				 				</div>
+				 			</div>
+				 			<div class="fom2">
+				 				<div class="top"><p id="dingdan1">订单编号:719551 预定时间:2015-12-29 12:04:00</p></div><div class="zero"></div>
+				 				<div class="di">
+				 					<ul class="dilist">
+				 						<li><img class="meili" src="img/个人中心页面-2.jpg"></li>
+				 						<li class="a1"><p>[5月]<阿尔山童话世界冰<br/>雪温泉之旅>北京直飞……</p></li>
+				 						<li class="a2">自驾游</li>
+				 						<li class="a3">2016-02-07</li>
+				 						<li class="a4">￥4568</li>
+				 						<li class="a5">待出行</li>
+				 						<li class="a6">
+				 							<div class="Achoo">取消</div>
+											<ul  class="Achoose">
+												<li class="choose2"><a href="../index自驾团在线支付页面.html">支付</a></li>
+												<li class="choose3"><a href="#mfyevaluate" class="mfymodaltrigger"><div class="Line">点评</div></a></li>
+												<li class="choose4"><a href="#mfyorder" class="mfymodaltrigger"><div class="Line">查看</div></a></li>
+											</ul>
+				 						<li>
+				 					</ul>
+				 				</div>
+				 			</div>
+				 			<div class="fom3">
+				 				<div class="top"><p id="dingdan1">订单编号:719551 预定时间:2015-12-29 12:04:00</p></div><div class="zero"></div>
+				 				<div class="di">
+				 					<ul class="dilist">
+				 						<li><img class="meili" src="img/个人中心页面-3.jpg"></li>
+				 						<li class="a1"><p>[4月]<海南海岛环驾8日<br/>自驾之旅>海口直飞……</p></li>
+				 						<li class="a2">自驾游</li>
+				 						<li class="a3">2016-02-07</li>
+				 						<li class="a4">￥4568</li>
+				 						<li class="a5">待出行</li>
+				 						<li class="a6">
+				 							<div class="Achoo">取消</div>
+											<ul  class="Achoose">
+												<li class="choose2"><a href="../index自驾团在线支付页面.html">支付</a></li>
+												<li class="choose3"><a href="#mfyevaluate" class="mfymodaltrigger"><div class="Line">点评</div></a></li>
+												<li class="choose4"><a href="#mfyorder" class="mfymodaltrigger"><div class="Line">查看</div></a></li>
+											</ul>
+				 						<li>
+				 					</ul>
+				 				</div>
+				 			</div>
+				 			<div class="fom4">
+				 				<div class="top"><p id="dingdan1">订单编号:719551 预定时间:2015-12-29 12:04:00</p></div><div class="zero"></div>
+				 				<div class="di">
+				 					<ul class="dilist">
+				 						<li><img class="meili" src="img/个人中心页面-4.jpg"></li>
+				 						<li class="a1"><p>[5月]<食在广东粤菜美<br/>食6日自驾>北京直飞 </p></li>
+				 						<li class="a2"> 自驾游</li>
+				 						<li class="a3">2016-02-07</li>
+				 						<li class="a4">￥4568</li>
+				 						<li class="a5">待出行</li>
+				 						<li class="a6">
+				 							<div class="Achoo">取消</div>
+											<ul  class="Achoose">
+												<li class="choose2"><a href="../index自驾团在线支付页面.html">支付</a></li>
+												<li class="choose3"><a href="#mfyevaluate" class="mfymodaltrigger"><div class="Line">点评</div></a></li>
+												<li class="choose4"><a href="#mfyorder" class="mfymodaltrigger"><div class="Line">查看</div></a></li>
+											</ul>
+				 						<li>
+				 					</ul>
+				 				</div>
+				 			</div>
+				 			<div class="zai"><a href=""><p id="more">加载更多<p></a></div>
+				 		</div>
+					</div>
+				</div>
+				<div class="con_main_bottom">
+					<div class="footer1">
+						<a id="collect">我的收藏</a>
+						<ul class="list3">
+							<a href=""><li class="lii1">看点</li></a>
+							<a href=""><li class="lii2">停车发呆地</li></a>
+							<a href=""><li class="lii3">高德地图点</li></a>
+							<a href=""><li class="lii4">私享点</li></a>
+							<a href=""><li class="lii5">线路</li>
+							<a href=""><li class="lii6">自驾团</li></a>
+						</ul>
+						<a id="NOcollect">暂无收藏看点</a>
+					</div>
+					<div class="footer2">
+						<div class="one">
+
+							<p class="txt2">我的线路</p>
+						</div>
+						<div>
+							<p class="txt1">暂无线路数据</p>
+
+						</div>
+					</div>
+					<div class="footer3">
+						<div class="one">
+							<p class="txt2">我的线路</p>
+							<input type="submit" class="fleet" value="+新建车队">
+						</div>
+					</div>
+					<div class="footer4">
+						<div class="one">
+							<p class="txt3">我的照片</p>
+							<p class="txt4"><a>照片</a></p>
+							<div class="submit">
+								<input type="submit" class="fleet" value="+上传照片">
+								<input type="submit" class="found" value="创建相册">
+							</div>
+							<div class="picbox">
+								<img src="img/个人中心页面-bottom.jpg">
+								<p id="txtz">分享专属</p>
+							</div>
+							<div class="goHome">
+								<a href="#header"><img src="img/goHome.png" alt=""></a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- footer	 -->
+	<div id="footer">
+		<div id="footer_top">
+			<div class="f_top_box">
+				<ul>
+					<a href=""><li class="lis1">民交通出版社</li></a>
+					<a href=""><li class="lis2">爱自驾</li></a>
+					<a href=""><li class="lis3">联系我们</li></a>
+					<a href=""><li class="lis4">友情链接</li></a>
+					<a href=""><li class="lis5">爱自驾品牌店</li></a>
+
+				</ul>
+			</div>
+		</div>
+		<div id="footer_bottom">
+			<div class="f_bottom_box">
+				<a href="">人民交通出版社股份有限公司</a>
+				<a class="foo_b_text" href="">京ICP备15018898号-1</a>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	// header change
+		$(function(){
+			$(".baidu").mouseenter(function(){
+				$(".head_left .map").attr("src","img/地址小灯_改变.png");
+				$(".head_left .city").css("color","#50bbdb")
+				$(".head_left .change").css("color","#50bbdb")
+			});
+			$(".baidu").mouseleave(function(){
+				$(".head_left .map").attr("src","img/地址小灯.png");
+				$(".head_left .city").css("color","#fff")
+				$(".head_left .change").css("color","#fff")
+			});
+			$("#denglu").mouseenter(function(){
+				$("#denglu").css("color","#50bbdb")
+
+			});
+			$("#denglu").mouseleave(function(){
+				$("#denglu").css("color","#fff")
+
+			});
+			$(".app").mouseenter(function(){
+				$(".app .pc").attr("src","img/手机APP_改变.png");
+				$(".app .aPc").css("color","#50bbdb")
+
+			});
+			$(".app").mouseleave(function(){
+				$(".app .pc").attr("src","img/手机APP.png");
+				$(".app .aPc").css("color","#fff")
+
+			});
+			$("#zhuce").mouseenter(function(){
+				$("#zhuce").css("color","#50bbdb")
+
+			});
+			$("#zhuce").mouseleave(function(){
+				$("#zhuce").css("color","#fff")
+
+			});
+			$(".imgW").mouseenter(function(){
+				$(".imgW").attr("src","img/微博_change.png");
+			});
+			$(".imgW").mouseleave(function(){
+				$(".imgW").attr("src","img/微博.png");
+			});
+			$(".imgQ").mouseenter(function(){
+				$(".imgQ").attr("src","img/QQ_change.png");
+			});
+			$(".imgQ").mouseleave(function(){
+				$(".imgQ").attr("src","img/QQ.png");
+			});
+		});
+		//个人注销
+		//注销
+		function H_massage(){
+			$(".por_mass p").click(function(){
+			$(".personal").css("display","block");
+			});
+			$(".por_mass li").mouseenter(function(){
+				$(this).css("color","#50bbdb")
+			})
+			$(".por_mass li").mouseleave(function(){
+				$(this).css("color","#999999")
+			})
+		}
+		H_massage();
+
+
+		function navChange(){
+			$("#nav li").click(function(){
+				$(this).addClass("love");
+				$(this).siblings().removeClass("love");
+				var sibName =  $(this).siblings().attr("class");
+				console.log(sibName);
+				$(this).css({"background-color":"#50bbdb","border-bottom":"2px solid #000"});
+				$(this).siblings().css({"background-color":"#ffffff","border-bottom":"0px solid #000","color":"#000"});
+				$(this).css({"color":"#fff"});
+			});
+
+			$("#nav li").mouseenter(function(){
+				$(this).css({"background-color":"#50bbdb","border-bottom":"2px solid #000"});
+				$(this).siblings().css({"background-color":"#ffffff","border-bottom":"0px solid #000","color": "#000"});
+				$(this).siblings(".love").css({"background-color":"#50bbdb","border-bottom":"2px solid #000","color":"#fff"})
+				$(this).css({"color":"#ffffff"})
+			});
+			$("#nav li").mouseleave(function(){
+
+				$(this).css({"color":"#fff"})
+				$(this).siblings().css({"color": "#000" })
+				$(this).siblings(".love").css({"background-color":"#50bbdb","border-bottom":"2px solid #000","color":"#fff"})
+
+			});
+		};
+		navChange();
+
+  		// 以上是模态窗口中的事件代码
+  		//cityChange
+		$(function(){
+			$(".change").click(function(a){
+				$("#allCity").slideDown(0);
+				a.stopPropagation();
+				// $(this).blur()
+			});
+
+			$("#allCity").click(function(a){
+				a.stopPropagation();
+			});
+
+			$(document).click(function(a){
+				a.button!=2&&$("#allCity").slideUp(0);
+			});
+
+			$("#foldin").click(function(){
+				$("#allCity").slideUp(0)
+			});
+			$(".selcity a").click(function(){
+				var x = $(this).text();
+				$(".city").text(x);
+			});
+			$(".allCity").click(function(){
+				$(".city").text("全国");
+			});
+			$(".noCity").click(function(a){
+				a.button!=2&&$("#allCity").slideUp(0);
+			});
+			$(".selcity").mouseleave(function(){
+				$("#allCity").slideUp(0);
+			});
+		});
+
+		//选择支付点评
+		function funChoose(){
+			$(".Achoose").css("display","none");
+			$(".Achoo").click(function() {
+				$(this).siblings().css("display","block");
+			})
+			$(".Achoose").mouseleave(function(){
+				$(this).css("display","none")
+			})
+			$(".fom1 .Achoose li").click(function(){
+				var x = $(this).text()
+				$(".fom1 .Achoo").text(x);
+			})
+			$(".fom2 .Achoose li").click(function(){
+				var x = $(this).text()
+				$(".fom2 .Achoo").text(x);
+			})
+			$(".fom3 .Achoose li").click(function(){
+				var x = $(this).text()
+				$(".fom3 .Achoo").text(x);
+			})
+			$(".fom4 .Achoose li").click(function(){
+				var x = $(this).text()
+				$(".fom4 .Achoo").text(x);
+			})
+		}
+		funChoose();
+
+
+		// -------------以下部分是evaluate模态窗口-------------
+		$(function(){
+    		$('.mfymodaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".mfyhidemodal"});
+  		});
+	  	$(".mfymodaltrigger").click(function(){
+  			$("body").addClass("mfybody");
+  			$(".orderList").addClass("mfybody");
+			$(".nav_box_ul li").addClass("mfybody");
+  		});
+  		$(".mfye-close").click(function(){
+      		$("#mfylean_overlay").fadeOut(200);
+      		$("#mfyevaluate").css("display","none");
+      		$("body").removeClass("mfybody");
+      		$(".orderList").removeClass("mfybody");
+      		$(".nav_box_ul li").removeClass("mfybody");
+  		});
+  		$(".mfyo-close").click(function(){
+      		$("#mfylean_overlay").fadeOut(200);
+      		$("#mfyorder").css("display","none");
+      		$("body").removeClass("mfybody");
+      		$(".orderList").removeClass("mfybody");
+      		$(".nav_box_ul li").removeClass("mfybody");
+  		});
+	  	$('#mfysize-demo').raty({
+	        path     : 'demo/img',
+	        cancel   : true,
+	        cancelOff: 'cancel-off-big.png',
+	        cancelOn : 'cancel-on-big.png',
+	        half     : true,
+	        size     : 24,
+	        starHalf : 'star-half-big.png',
+	        starOff  : 'star-off-big.png',
+	        starOn   : 'star-on-big.png'
+	  	});
+		// -------------以上部分是evaluate模态窗口-------------
+	</script>
+</body>
+</html>

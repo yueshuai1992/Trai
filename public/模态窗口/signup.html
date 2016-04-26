@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>Modal Login Window Demo</title>
+  <link rel="stylesheet" type="text/css" media="all" href="style/style.css">
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+  <!-- jQuery plugin leanModal under MIT License http://leanmodal.finelysliced.com.au/ -->
+</head>
+
+<body>
+  <div id="w">
+    <div id="content">
+      <h1>Welcome to the Site!</h1>
+      <p>Just click the login link below to expand the modal window. This is only a demo so the input form will not load anything, but it is easy to connect into a backend system.</p>
+      <center><a href="#signup" id="modaltrigger">Modal Login</a></center>
+    </div>
+  </div>
+  <div id="signup" style="display:none;">
+    <img src="images/关闭.png" alt="" class="close">
+    <img src="images/logo2.png" alt="" class="logo">
+    <a href="" class="phsign">用手机注册</a>
+    <form id="signform" name="signform" method="post" action="signup.html">
+      <input type="text" name="mail" id="mail" class="txtfield3"  placeholder="请输入邮箱">
+      <input type="text" name="usname" id="usname" class="txtfield3" placeholder="用户名,4-16个字符,字母/中文/数字">
+      <input type="password" name="setpass" id="setpass" class="txtfield3" placeholder="设置密码">
+      <input type="password" name="inputpass" id="inputpass" class="txtfield3" placeholder="输入密码">
+      <input type="password" name="inputpass" id="inputpass" class="txtfield3" placeholder="输入邀请码,可不填">
+      <div class="signpb">
+        <p>
+          <span>注册视为同意</span>
+          <a href="">《爱自驾用户使用协议》</a>
+        </p>
+        <input type="submit" name="signbtn" id="signbtn" value="注 册" tabindex="1">
+      </div>
+
+      <div class="signhr">
+        <hr class="hr1">
+        <span>其他报名方式</span>
+        <hr class="hr2">
+      </div>
+      <div class="center"><input type="submit" name="sign" id="sign" value="快速登录>" tabindex="2"></div>
+    </form>
+  </div>
+<script type="text/javascript">
+  $(function(){ 
+    $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal"});
+  });
+  $(".close").click(function(){
+      $("#lean_overlay").fadeOut(200);
+      $("#signup").css({"display":"none"});
+  });
+</script>
+</body>
+</html>
