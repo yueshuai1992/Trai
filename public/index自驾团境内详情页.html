@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自驾团境内详情页</title>
+	<link rel="stylesheet" href="style/style.css"><!-- 模态窗口样式 -->
+	<link rel="stylesheet" href="style/index自驾团境内详情页.css">
+	<link href="style/cityChange.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+	<!-- 模态窗口 -->
+		<div id="mfyloginmodal" style="display:none;">
+		    <img src="img/关闭.png" alt="" class="mfyclose">
+		    <img src="img/logo2.png" alt="" class="mfymodal-logo">
+		    <form id="mfyloginform" name="mfyloginform" method="post" action="index自驾团主页.html">
+		      	<input type="text" name="mfyusername" id="mfyusername" class="mfytxtfield1"  placeholder="邮箱/手机/用户名">
+		      	<input type="password" name="mfypassword" id="mfypassword" class="mfytxtfield2" placeholder="密码">
+		      	<div class="mfycenter"><input type="submit" name="mfyloginbtn" id="mfyloginbtn" value="登录" tabindex="3" class="mfyflatbtn-blu"></div>
+		      	<div class="mfyforgetp">
+			        <div class="mfyforgetp-s">
+			          <a href="" class="mfyforgetp-a">忘记密码</a>
+			          <p><span>还没有账号？</span><a href="#mfysignup" class="mfymodaltrigger">免费注册</a></p>
+			        </div>
+			        <div class="mfyhr">
+			          <hr class="mfyhr1">
+			          <span>其他报名方式</span>
+			          <hr class="mfyhr2">
+			        </div>
+	      		</div>
+	      		<div class="mfycenter"><input type="submit" name="mfyloginbtn2" id="mfyloginbtn2" value="不登录,直接报名>" tabindex="3" class="mfyflatbtn-blu"></div>
+	    	</form>
+	  	</div>
+
+		<div id="mfysignup" style="display:none;">
+	    <img src="img/关闭.png" alt="" class="mfyclose">
+	    <img src="img/logo2.png" alt="" class="mfymodal-logo">
+	    <a href="" class="mfyphsign">用手机注册</a>
+	    <form id="mfysignform" name="mfysignform" method="post" action="index自驾团主页.html">
+	      <input type="text" name="mfymail" id="mfymail" class="mfytxtfield3"  placeholder="请输入邮箱">
+	      <input type="text" name="mfyusname" id="mfyusname" class="mfytxtfield3" placeholder="用户名,4-16个字符,字母/中文/数字">
+	      <input type="password" name="mfysetpass" id="mfysetpass" class="mfytxtfield3" placeholder="设置密码">
+	      <input type="password" name="mfyinputpass" id="mfyinputpass" class="mfytxtfield3" placeholder="输入密码">
+	      <input type="password" name="mfyinputpass" id="mfyinputpass" class="mfytxtfield3" placeholder="输入邀请码,可不填">
+	      <div class="mfysignpb">
+	        <p>
+	          <span>注册视为同意</span>
+	          <a href="">《爱自驾用户使用协议》</a>
+	        </p>
+	        <input type="submit" name="mfysignbtn" id="mfysignbtn" value="注 册" tabindex="1">
+	      </div>
+
+	      <div class="mfysignhr">
+	        <hr class="mfysignhr1">
+	        <span>其他报名方式</span>
+	        <hr class="mfysignhr2">
+	      </div>
+	      <div class="mfycenter"><input type="submit" name="mfysign" id="mfysign" value="快速登录>" tabindex="2"></div>
+	    </form>
+	  </div>
+  <!-- 以上为模态窗口 -->
+	<!-- header -->
+	<div id="header">
+		<div class="header_box">
+			<div class="head_left">
+				<div  class="baidu">
+					<a href="baiduMapApi/demo/demo.html"><img class = "map" src="img/地址小灯.png" alt=""></a>
+					<a class="city">北京</a>
+					<a class="change">切换</a>
+				</div>
+				<div class="selcity" id="allCity" style="display:none;">
+					<table>
+						<tbody>
+							<tr>
+								<td ><a class="allCity" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全国：</a></td>
+								<td><a class="cur" > 北京</a></td>
+								<td><a href="#">天津</a></td>
+								<td><a href="#">河北</a></td>
+								<td><a href="#">山西</a></td>
+								<td><a href="#">内蒙古</a></td>
+								<td><a href="#">辽宁</a></td>
+								<td><a href="#">吉林</a></td>
+								<td><a href="#">黑龙江</a></td>
+								<td><a href="#">上海</a></td>
+							</tr>
+							<tr>
+								<td class="noCity">&nbsp;</td>
+								<td><a href="#">江苏</a></td>
+								<td><a href="#">浙江</a></td>
+								<td><a href="#">安徽</a></td>
+								<td><a href="#">福建</a></td>
+								<td><a href="#">江西</a></td>
+								<td><a href="#">山东</a></td>
+								<td><a href="#">河南</a></td>
+								<td><a href="#">湖北</a></td>
+								<td><a href="#">湖南</a></td>
+							</tr>
+							<tr>
+								<td class="noCity">&nbsp;</td>
+								<td><a href="#">广东</a></td>
+								<td><a href="#">广西</a></td>
+								<td><a href="#">海南</a></td>
+								<td><a href="#">重庆</a></td>
+								<td><a href="#">四川</a></td>
+								<td><a href="#">贵州</a></td>
+								<td><a href="#">云南</a></td>
+								<td><a href="#">西藏</a></td>
+								<td><a href="#">陕西</a></td>
+							</tr>
+							<tr>
+								<td class="noCity">&nbsp;</td>
+								<td><a href="#">西藏</a></td>
+								<td><a href="#">甘肃</a></td>
+								<td><a href="#">青海</a></td>
+								<td><a href="#">宁夏</a></td>
+								<td><a href="#">新疆</a></td>
+								<td class="noCity">&nbsp;</td>
+								<td class="noCity">&nbsp;</td>
+								<td class="noCity">&nbsp;</td>
+								<td class="noCity">&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="app">
+					<img class="pc" src="img/手机APP.png" alt="">
+					<a  class ="aPc" href="">下载手机APP</a>
+				</div>
+			</div>
+			<!-- 调用模态窗口 -->
+			<div class="head_right">
+				<div class="head_right_a">
+					<a href="#mfyloginmodal"  class="mfymodaltrigger mfyhover">登录</a>
+					<span>&nbsp;|&nbsp;</span>
+					<a href="#mfysignup" class="mfymodaltrigger mfyhover">注册</a>
+				</div>
+					<a href="http://weibo.com"><img class="imgW" src="img/微博.png" alt=""></a>
+				<a href="http://im.qq.com"><img class="imgQ" src="img/QQ.png" alt=""></a>
+			</div>
+			<!-- 以上为调用模态窗口代码 -->
+		</div>
+	</div>
+	<div id="nav">
+		<div id ="nav_box">
+			<img src="img/logo.png" alt="">
+			<ul>
+				<li>首页</li>
+				<li>目的地</li>
+				<li>线路</li>
+				<li>订制</li>
+				<li>自驾团</li>
+				<li class="xxx">摄影</li>
+				<li>互动</li>
+				<li>精选</li>
+				<li>预订</li>
+			</ul>
+		</div>
+
+	</div>
+	<div id="banner">
+		<div id="ban_pic">
+			<div id="pic">
+
+			</div>
+
+		</div>
+	</div>
+	</div>
+	<div id="container">
+		<div id="containerBox">
+			<!-- Search -->
+			<div id="con_search">
+				<div class="con_sea_top">
+					<input type="text">
+					<a href=""><img src="img/搜索小图.jpg" alt=""></a>
+				</div>
+				<div class="con_sea_bottom">
+					<ul>
+						<li>热门搜索：</li>
+						<a href=""><li>北京</li></a>
+						<a href=""><li>西安</li></a>
+						<a href=""><li>天津</li></a>
+						<a href=""><li>上海</li></a>
+						<a href=""><li>杭州</li></a>
+						<a href=""><li>青海</li></a>
+						<a href=""><li>西藏</li></a>
+						<a href=""><li>云南</li></a>
+					</ul>
+				</div>
+			</div>
+			<!-- 境内 -->
+			<div id="c_con_top">
+				<a class="c_c_t_left1" href="">境内</a>
+				<a class="c_c_t_left2" href="">Territory</a>
+				<a class="c_c_t_right" href="index自驾团列表页.html">更多>></a>
+			</div>
+			<!-- 第一组图片 -->
+			<div id="con_pic_one">
+				<a href=""><div class="left">
+					<img src="img/魅力湘西过大年.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">魅力湘西过大年</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">4580 <span>起</span></a>
+						<a class="con_txt_2" href="">2016-02-07出发</a>
+						<a class="con_txt_3" href="">7天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">北京—襄阳—龙山—吉首—边城......</a></div>
+						<div class="con_mid_bottom">深度体验土苗特色春节</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">携友同行汽车俱乐部</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+				<a href=""><div class="middle">
+					<img src="img/舟山、普陀山7天自驾之旅.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">舟山、普陀山7天自驾之旅</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">3580 <span>起</span></a>
+						<a class="con_txt_2" href="">2015-12-29出发</a>
+						<a class="con_txt_3" href="">7天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">北京—舟山市—普陀山—绍兴—扬州</a></div>
+						<div class="con_mid_bottom">南海圣境的祈福之旅！</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">北京969汽车俱乐部</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+				<a href=""><div class="right">
+					<img src="img/燕子沟•木格措3日自驾之旅.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">燕子沟•木格措3日自驾之旅</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">1980 <span>起</span></a>
+						<a class="con_txt_2" href="">2015-12-30出发</a>
+						<a class="con_txt_3" href="">6天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">成都—康定—木格措—燕子沟</a></div>
+						<div class="con_mid_bottom">欣赏木格措一日四时景，体验藏文化。</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">成都心启点自驾俱乐部</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+			</div>
+			<!-- 第二组图片 -->
+			<div id="con_pic_two">
+				<a href="陈静/自驾团详情页.html"><div class="left">
+					<img src="img/南京落地自驾行摄之旅.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">云南落地自驾行摄之旅</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">4580 <span>起</span></a>
+						<a class="con_txt_2" href="">2015-12-27出发</a>
+						<a class="con_txt_3" href="">7天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href=""> 昆明—建水—元阳·—元江—玉溪—东川</a></div>
+						<div class="con_mid_bottom">壮美东川，光影元阳</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+				<a href=""><div class="middle">
+					<img src="img/食在广东 粤菜美食6日自驾.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">食在广东 粤菜美食6日自驾</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">3680 <span>起</span></a>
+						<a class="con_txt_2" href="">2015-12-29出发</a>
+						<a class="con_txt_3" href="">6天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">广州—开平—番禺—深圳</a></div>
+						<div class="con_mid_bottom">领略岭南风光，品味地道美食</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+				<a href=""><div class="right">
+					<img src="img/冰雪圣地呼伦贝尔 冬季那达慕自驾.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">冰雪圣地呼伦贝尔 冬季那达慕自驾</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">3880 <span>起</span></a>
+						<a class="con_txt_2" href="">2015-12-30出发</a>
+						<a class="con_txt_3" href="">7天</a>
+					</div>
+					<div class="con_mid_d">
+						<div class="con_mid_top"><a href="">海拉尔—呼和诺尔—冷极村—敖鲁古雅 <span>冰雪</span></a></div>
+						<div class="con_mid_bottom">冰雪盛宴，冬季那达慕</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+			</div>
+			<!-- 第三组图片 -->
+			<div id="con_pic_three">
+				<a href=""><div class="left">
+					<img src="img/彩云之南 边关秘境 发现之旅.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">彩云之南 边关秘境 发现之旅</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">11800 <span>起</span></a>
+						<a class="con_txt_2" href="">2016-01-03出发</a>
+						<a class="con_txt_3" href="">25天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">南京—重庆—普者黑—元阳—泸沽湖</a></div>
+						<div class="con_mid_bottom">不一样的云南发现之旅</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+				<a href=""><div class="middle">
+					<img src="img/海天佛国 普陀山祈福之旅.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">海天佛国 普陀山祈福之旅</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">1280 <span>起</span></a>
+						<a class="con_txt_2" href="">2016-01-05出发</a>
+						<a class="con_txt_3" href="">3天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">南京—朱家尖—普陀山—宁波</a></div>
+						<div class="con_mid_bottom">海天佛国，南海圣境</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+				<a href=""><div class="right">
+					<img src="img/玩转广西自驾12日游.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">玩转广西自驾12日游</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">4680 <span>起</span></a>
+						<a class="con_txt_2" href="">2016-02-12出发</a>
+						<a class="con_txt_3" href="">12天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">南京—桂林—凭祥—北海—阳朔</a></div>
+						<div class="con_mid_bottom">尽情领略广西风光，深入体验中越边关风采。</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+			</div>
+
+			<!-- 第四组 -->
+			<div id="con_pic_four">
+				<a href=""><div class="left">
+					<img src="img/黔东南深度名俗体验之旅.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">黔东南深度名俗体验之旅</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">4580 <span>起</span></a>
+						<a class="con_txt_2" href="">2016-01-25出发</a>
+						<a class="con_txt_3" href="">12天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href=""> 南京—西江—黄果树—荔波—桂林</a></div>
+						<div class="con_mid_bottom">返璞归真，回归自然。</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+				<a href=""><div class="middle">
+					<img src="img/滇西北深秋寻美行摄之旅.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">滇西北深秋寻美行摄之旅</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">3580 <span>起</span></a>
+						<a class="con_txt_2" href="">2016-01-21出发</a>
+						<a class="con_txt_3" href="">8天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">昆明—丽江—香格里拉—大理</a></div>
+						<div class="con_mid_bottom">最经典滇西北行程，体验梦中的香格里拉。</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+				<a href=""><div class="right">
+					<img src="img/领略滇西风土人情自驾7日游.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">领略滇西风土人情自驾7日游</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">3580 <span>起</span></a>
+						<a class="con_txt_2" href="">2016-02-16出发</a>
+						<a class="con_txt_3" href="">8天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">成都—普洱—望天树—傣族园—抚仙湖</a></div>
+						<div class="con_mid_bottom">大理双廊洱海、腾冲银杏</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+			</div>
+			<!-- 第五组 -->
+			<div id="con_pic_five">
+				<a href=""><div class="left">
+					<img src="img/长白山雪乡冰雪温泉9日自驾.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">长白山雪乡冰雪温泉9日自驾</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">4980 <span>起</span></a>
+						<a class="con_txt_2" href="">2015-12-26出发</a>
+						<a class="con_txt_3" href="">9天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">北京—长白山—敦化—雪乡—哈尔滨</a></div>
+						<div class="con_mid_bottom">梦幻雪乡，北国童话。</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+				<a href=""><div class="middle">
+					<img src="img/舌尖上的查干湖冬捕美食之旅.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">舌尖上的查干湖冬捕美食之旅</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">3280 <span>起</span></a>
+						<a class="con_txt_2" href="">2015-12-30出发</a>
+						<a class="con_txt_3" href="">6天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">北京—松原市—雾凇岛—雪谷—雪乡</a></div>
+						<div class="con_mid_bottom">体验如同童话世界一样的美景。</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+				<a href=""><div class="right">
+					<img src="img/贵州黄果树·南江大峡谷6日自驾.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href=""> 贵州黄果树·南江大峡谷6日自驾</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">2580 <span>起</span></a>
+						<a class="con_txt_2" href="">2015-12-30出发</a>
+						<a class="con_txt_3" href="">6天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">成都—遵义—贵阳—黄果树—赤水</a></div>
+						<div class="con_mid_bottom">黄果树、南江大峡谷、龙宫、赤水</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+			</div>
+			<!-- 第六组 -->
+			<div id="con_pic_six">
+				<a href=""><div class="left">
+					<img src="img/冬韵多彩九寨沟3日自驾.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">冬韵多彩九寨沟3日自驾</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">1880 <span>起</span></a>
+						<a class="con_txt_2" href="">2016-01-21出发</a>
+						<a class="con_txt_3" href="">5天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">重庆—广元—文县—九寨沟—都江堰</a></div>
+						<div class="con_mid_bottom">走进童话冰雪世界</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+				<a href=""><div class="middle">
+					<img src="img/海南海天盛筵环岛7天自驾之旅.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">海南海天盛筵环岛7天自驾之旅</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">3980 <span>起</span></a>
+						<a class="con_txt_2" href="">2016-02-21出发</a>
+						<a class="con_txt_3" href="">7天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">海口—文昌—海棠湾—三亚—乐东</a></div>
+						<div class="con_mid_bottom">深度环岛自驾体验。</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href="">北京969汽车俱乐部</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+				<a href=""><div class="right">
+					<img src="img/寻梦琅琊 探秘琅琊台4日自驾.jpg" alt="">
+					<div class="pic_bottom">
+						<div class="smBox"></div>
+						<a href="">寻梦琅琊 探秘琅琊台4日自驾</a>
+					</div>
+					<div class="con_top">
+						<a class="con_txt_1" href="">1580起 <span>起</span></a>
+						<a class="con_txt_2" href="">2015-01-16出发</a>
+						<a class="con_txt_3" href="">4天</a>
+					</div>
+					<div class="con_mid">
+						<div class="con_mid_top"><a href="">北京—台儿庄—琅琊台—东营—北京</a></div>
+						<div class="con_mid_bottom">寻梦琅琊，探秘琅琊台。</div>
+					</div>
+					<div class="con_bottom">
+						<img class="con_person" src="img/小人.png" alt="">
+						<a class="con_china"href=""> 中国自驾游联盟南京站</a>
+						<img class="con_ii"src="img/眼睛.jpg" alt="">
+						<a class = "con_ii_num" href="">36</a>
+						<img class="con_zan" src="img/小手赞.jpg" alt="">
+						<a class = "con_zan_num" href="">0</a>
+					</div>
+				</div></a>
+			</div>
+			<!-- 切换页 -->
+			<div id="con_list">
+				<div id="con_change">
+					<a  class="c_c_left1" ><img class="lft1" src="img/自驾团境内列表页_双指向左.png" alt=""></a>
+					<a  class="c_c_left2" ><img class="rig1" src="img/自驾团境内列表页_单指向左.png" alt=""></a>
+					<div class="listBox">
+						<ul>
+							<a href=""><li>1</li></a>
+							<a href=""><li>2</li></a>
+							<a href=""><li>3</li></a>
+							<a href=""><li>4</li></a>
+							<a href=""><li>5</li></a>
+							<a href=""><li>6</li></a>
+							<a href=""><li>7</li></a>
+							<a href=""><li>8</li></a>
+						</ul>
+					</div>
+
+					<a class="c_c_right2" ><img class="rig2" src="img/自驾团境内列表页_单指向右.png" alt=""></a>
+					<a class="c_c_right1" ><img class="lft2" src="img/自驾团境内列表页_双指向右.png" alt=""></a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- footer	 -->
+	<div id="footer">
+		<div id="footer_top">
+			<div class="f_top_box">
+				<ul>
+					<a href=""><li class="list1">民交通出版社</li></a>
+					<a href=""><li class="list2">爱自驾</li></a>
+					<a href=""><li class="list3">联系我们</li></a>
+					<a href=""><li class="list4">友情链接</li></a>
+					<a href=""><li class="list5">爱自驾品牌店</li></a>
+
+				</ul>
+			</div>
+		</div>
+		<div id="footer_bottom">
+			<div class="f_bottom_box">
+				<a href="">人民交通出版社股份有限公司</a>
+				<a class="foo_b_text" href="">京ICP备15018898号-1</a>
+			</div>
+		</div>
+
+
+	</div>
+	<script src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js">
+	</script>
+	<script>
+		function butChange(){
+			var x =1;//1
+			var num=0;
+			var y=1;//1
+			$(".c_c_left2").click(function(){
+				num=num-48;
+				if(num>=-192){
+					$("#con_change ul").animate({"marginLeft":num},200)
+				}
+				else{
+					$("#con_change ul").animate({"marginLeft":-192},200)
+					num=-192;
+				}
+
+
+			});
+			$(".c_c_left1").click(function(){
+				$("#con_change ul").animate({"marginLeft":"0"},200)
+				num=0;
+
+			});
+			$(".c_c_right2").click(function(){
+				console.log(num)
+				num=num+48;
+				if(num>=-192&&num<=0){
+					$("#con_change ul").animate({"marginLeft":num},200)
+				}
+				else{
+					$("#con_change ul").animate({"marginLeft":0},200)
+					num=0;
+				}
+
+
+
+			});
+			$(".c_c_right1").click(function(){
+				$("#con_change ul").animate({"marginLeft":"-192"},200)
+				num=-192;
+			});
+		};
+		butChange();
+		function navChange(){
+			$("#nav li").click(function(){
+				$(this).addClass("love");
+				$(this).siblings().removeClass("love");
+				var sibName =  $(this).siblings().attr("class");
+				console.log(sibName)
+				$(this).css({"background-color":"#50bbdb","border-bottom":"2px solid #000"});
+				$(this).siblings().css({"background-color":"#ffffff","border-bottom":"0px solid #000","color":"#000"});
+				$(this).css({"color":"#fff"});
+			});
+
+			$("#nav li").mouseenter(function(){
+				$(this).css({"background-color":"#50bbdb","border-bottom":"2px solid #000"});
+				$(this).siblings().css({"background-color":"#ffffff","border-bottom":"0px solid #000","color": "#000"});
+				$(this).siblings(".love").css({"background-color":"#50bbdb","border-bottom":"2px solid #000","color":"#fff"})
+				$(this).css({"color":"#ffffff"})
+			});
+			$("#nav li").mouseleave(function(){
+
+				$(this).css({"color":"#fff"})
+				$(this).siblings().css({"color": "#000" })
+				$(this).siblings(".love").css({"background-color":"#50bbdb","border-bottom":"2px solid #000","color":"#fff"})
+
+			});
+//
+		};
+		navChange();
+		function zan(){
+			var x = 36;
+			$(".con_ii").click(function(){
+				$(this).css("cursor","pointer");
+				var xx = $(this).attr("src");
+
+				if(xx=="img/眼睛.jpg"){
+					x++;
+					$(this).siblings(".con_ii_num").text(x);
+					$(this).attr("src","img/眼睛c.jpg")
+
+				}
+				else{
+					x--;
+					$(this).siblings(".con_ii_num").text(x);
+					$(this).attr("src","img/眼睛.jpg")
+				}
+			})
+			var y =0;
+			$(".con_zan").click(function(){
+				$(this).css("cursor","pointer")
+				var yy = $(this).attr("src");
+				if(yy=="img/小手赞.jpg"){
+					y++;
+
+					$(this).siblings(".con_zan_num").text(y);
+					$(this).attr("src","img/小手赞_change.png")
+				}
+				else{
+					y--;
+					$(this).siblings(".con_zan_num").text(y);
+					$(this).attr("src","img/小手赞.jpg")
+				}
+
+
+			})
+
+		}
+		zan();
+		// cityChange
+		$(function(){
+
+			$(".change").click(function(a){
+				$("#allCity").slideDown(0);
+				a.stopPropagation();
+				// $(this).blur()
+			});
+
+			$("#allCity").click(function(a){
+				a.stopPropagation();
+			});
+
+			$(document).click(function(a){
+				a.button!=2&&$("#allCity").slideUp(0);
+			});
+
+			$("#foldin").click(function(){
+				$("#allCity").slideUp(0)
+			});
+			$(".selcity a").click(function(){
+				var x = $(this).text();
+				$(".city").text(x);
+			});
+			$(".allCity").click(function(){
+				$(".city").text("全国");
+			});
+			$(".noCity").click(function(a){
+				a.button!=2&&$("#allCity").slideUp(0);
+			});
+		});
+		$(function(){
+			$(".baidu").mouseenter(function(){
+				$(".head_left .map").attr("src","img/地址小灯_改变.png");
+				$(".head_left .city").css("color","#50bbdb")
+				$(".head_left .change").css("color","#50bbdb")
+			});
+			$(".baidu").mouseleave(function(){
+				$(".head_left .map").attr("src","img/地址小灯.png");
+				$(".head_left .city").css("color","#fff")
+				$(".head_left .change").css("color","#fff")
+			});
+			$("#denglu").mouseenter(function(){
+				$("#denglu").css("color","#50bbdb")
+
+			});
+			$("#denglu").mouseleave(function(){
+				$("#denglu").css("color","#fff")
+
+			});
+			$(".app").mouseenter(function(){
+				$(".app .pc").attr("src","img/手机APP_改变.png");
+				$(".app .aPc").css("color","#50bbdb")
+
+			});
+			$(".app").mouseleave(function(){
+				$(".app .pc").attr("src","img/手机APP.png");
+				$(".app .aPc").css("color","#fff")
+
+			});
+			$("#zhuce").mouseenter(function(){
+				$("#zhuce").css("color","#50bbdb")
+
+			});
+			$("#zhuce").mouseleave(function(){
+				$("#zhuce").css("color","#fff")
+
+			});
+			$(".imgW").mouseenter(function(){
+				$(".imgW").attr("src","img/微博_change.png");
+			});
+			$(".imgW").mouseleave(function(){
+				$(".imgW").attr("src","img/微博.png");
+			});
+			$(".imgQ").mouseenter(function(){
+				$(".imgQ").attr("src","img/QQ_change.png");
+			});
+			$(".imgQ").mouseleave(function(){
+				$(".imgQ").attr("src","img/QQ.png");
+			});
+		});
+
+		// 模态窗口中的事件代码
+		$(function(){
+    		$('.mfymodaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".mfyhidemodal"});
+  		});
+  		$(".mfymodaltrigger").click(function(){
+  			$("body").addClass("mfybodyclass");
+  		});
+  		$(".mfyclose").click(function(){
+      		$("#mfylean_overlay").fadeOut(200);
+      		$("#mfyloginmodal").css("display","none");
+      		$("#mfysignup").css("display","none");
+      		$("body").removeClass("mfybodyclass");
+  		});
+  		// 以上是模态窗口中的事件代码
+	</script>
+</body>
+</html>

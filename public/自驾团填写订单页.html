@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>填写订单</title>
+	<link rel="stylesheet" href="style/style.css"><!-- 模态窗口样式 -->
+	<link rel="stylesheet" href="style/自驾团填写订单页.css">
+	<link rel="stylesheet" href="style/index领队.css">
+	<link href="style/cityChange.css" type="text/css" rel="stylesheet" >
+	<script src="js/jquery.js"></script>
+	<script>
+		$.validator.setDefaults({
+    		submitHandler: function() {
+      		alert("提交事件!");
+    		}
+		});
+		$("#commentForm").validate();
+	</script>
+	<style>
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<!-- 模态窗口 -->
+		<div id="mfyloginmodal" style="display:none;">
+		    <img src="img/关闭.png" alt="" class="mfyclose">
+		    <img src="img/logo2.png" alt="" class="mfymodal-logo">
+		    <form id="mfyloginform" name="mfyloginform" method="post" action="index自驾团主页.html">
+		      	<input type="text" name="mfyusername" id="mfyusername" class="mfytxtfield1"  placeholder="邮箱/手机/用户名">
+		      	<input type="password" name="mfypassword" id="mfypassword" class="mfytxtfield2" placeholder="密码">
+		      	<div class="mfycenter"><input type="submit" name="mfyloginbtn" id="mfyloginbtn" value="登录" tabindex="3" class="mfyflatbtn-blu"></div>
+		      	<div class="mfyforgetp">
+			        <div class="mfyforgetp-s">
+			          <a href="" class="mfyforgetp-a">忘记密码</a>
+			          <p><span>还没有账号？</span><a href="#mfysignup" class="mfymodaltrigger">免费注册</a></p>
+			        </div>
+			        <div class="mfyhr">
+			          <hr class="mfyhr1">
+			          <span>其他报名方式</span>
+			          <hr class="mfyhr2">
+			        </div>
+	      		</div>
+	      		<div class="mfycenter"><input type="submit" name="mfyloginbtn2" id="mfyloginbtn2" value="不登录,直接报名>" tabindex="3" class="mfyflatbtn-blu"></div>
+	    	</form>
+	  	</div>
+
+		<div id="mfysignup" style="display:none;">
+	    <img src="img/关闭.png" alt="" class="mfyclose">
+	    <img src="img/logo2.png" alt="" class="mfymodal-logo">
+	    <a href="" class="mfyphsign">用手机注册</a>
+	    <form id="mfysignform" name="mfysignform" method="post" action="index自驾团主页.html">
+	      <input type="text" name="mfymail" id="mfymail" class="mfytxtfield3"  placeholder="请输入邮箱">
+	      <input type="text" name="mfyusname" id="mfyusname" class="mfytxtfield3" placeholder="用户名,4-16个字符,字母/中文/数字">
+	      <input type="password" name="mfysetpass" id="mfysetpass" class="mfytxtfield3" placeholder="设置密码">
+	      <input type="password" name="mfyinputpass" id="mfyinputpass" class="mfytxtfield3" placeholder="输入密码">
+	      <input type="password" name="mfyinputpass" id="mfyinputpass" class="mfytxtfield3" placeholder="输入邀请码,可不填">
+	      <div class="mfysignpb">
+	        <p>
+	          <span>注册视为同意</span>
+	          <a href="">《爱自驾用户使用协议》</a>
+	        </p>
+	        <input type="submit" name="mfysignbtn" id="mfysignbtn" value="注 册" tabindex="1">
+	      </div>
+
+	      <div class="mfysignhr">
+	        <hr class="mfysignhr1">
+	        <span>其他报名方式</span>
+	        <hr class="mfysignhr2">
+	      </div>
+	      <div class="mfycenter"><input type="submit" name="mfysign" id="mfysign" value="快速登录>" tabindex="2"></div>
+	    </form>
+	  </div>
+  <!-- 以上为模态窗口 -->
+	<!-- header -->
+	<div id="header">
+		<div class="header_box">
+			<div class="head_left">
+				<div  class="baidu">
+					<a href="baiduMapApi/demo/demo.html"><img class = "map" src="img/地址小灯.png" alt=""></a>
+					<a class="city">北京</a>
+					<a class="change">切换</a>
+				</div>
+				<div class="selcity" id="allCity" style="display:none;">
+					<table>
+						<tbody>
+							<tr>
+								<td ><a class="allCity" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全国：</a></td>
+								<td><a class="cur" > 北京</a></td>
+								<td><a href="#">天津</a></td>
+								<td><a href="#">河北</a></td>
+								<td><a href="#">山西</a></td>
+								<td><a href="#">内蒙古</a></td>
+								<td><a href="#">辽宁</a></td>
+								<td><a href="#">吉林</a></td>
+								<td><a href="#">黑龙江</a></td>
+								<td><a href="#">上海</a></td>
+							</tr>
+							<tr>
+								<td class="noCity">&nbsp;</td>
+								<td><a href="#">江苏</a></td>
+								<td><a href="#">浙江</a></td>
+								<td><a href="#">安徽</a></td>
+								<td><a href="#">福建</a></td>
+								<td><a href="#">江西</a></td>
+								<td><a href="#">山东</a></td>
+								<td><a href="#">河南</a></td>
+								<td><a href="#">湖北</a></td>
+								<td><a href="#">湖南</a></td>
+							</tr>
+							<tr>
+								<td class="noCity">&nbsp;</td>
+								<td><a href="#">广东</a></td>
+								<td><a href="#">广西</a></td>
+								<td><a href="#">海南</a></td>
+								<td><a href="#">重庆</a></td>
+								<td><a href="#">四川</a></td>
+								<td><a href="#">贵州</a></td>
+								<td><a href="#">云南</a></td>
+								<td><a href="#">西藏</a></td>
+								<td><a href="#">陕西</a></td>
+							</tr>
+							<tr>
+								<td class="noCity">&nbsp;</td>
+								<td><a href="#">西藏</a></td>
+								<td><a href="#">甘肃</a></td>
+								<td><a href="#">青海</a></td>
+								<td><a href="#">宁夏</a></td>
+								<td><a href="#">新疆</a></td>
+								<td class="noCity">&nbsp;</td>
+								<td class="noCity">&nbsp;</td>
+								<td class="noCity">&nbsp;</td>
+								<td class="noCity">&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="app">
+					<img class="pc" src="img/手机APP.png" alt="">
+					<a  class ="aPc" href="">下载手机APP</a>
+				</div>
+			</div>
+			<!-- 调用模态窗口 -->
+			<div class="head_right">
+				<div class="head_right_a">
+					<a href="#mfyloginmodal"  class="mfymodaltrigger mfyhover">登录</a>
+					<span>&nbsp;|&nbsp;</span>
+					<a href="#mfysignup" class="mfymodaltrigger mfyhover">注册</a>
+				</div>
+					<a href="http://weibo.com"><img class="imgW" src="img/微博.png" alt=""></a>
+				<a href="http://im.qq.com"><img class="imgQ" src="img/QQ.png" alt=""></a>
+			</div>
+			<!-- 以上为调用模态窗口代码 -->
+		</div>
+	</div>
+	<div id="nav">
+		<div id ="nav_box">
+			<img src="img/logo.png" alt="">
+			<ul>
+				<li>首页</li>
+				<li>目的地</li>
+				<li>线路</li>
+				<li>订制</li>
+				<li>自驾团</li>
+				<li class="xxx">摄影</li>
+				<li>互动</li>
+				<li>精选</li>
+				<li>预订</li>
+			</ul>
+		</div>
+
+	</div>
+	<div id="body">
+		<div id="min-body">
+			<div id="list-1">
+				<div class="gps">
+					<ul>
+						<li>自驾团&#160</li>
+						<li>&#160>&#160</li>
+						<li>境内&#160</li>
+						<li>>&#160</li>
+						<li>云南落地自驾行摄之旅&#160</li>
+						<li>>&#160</li>
+						<li>我要报名&#160</li>
+						<li>>&#160</li>
+						<li>填写订单&#160</li>
+					</ul>
+				</div>
+				<div class="rute">
+					<div class="rute-1"></div>
+					<div class="rute-2">1</div>
+					<div class="rute-3"></div>
+					<div class="rute-4">2</div>
+					<div class="rute-5"></div>
+					<div class="rute-6">3</div>
+					<div class="rute-7"></div>
+					<div class="rute-8">4</div>
+					<div class="rute-9"></div>
+				</div>
+				<div class="text">
+					<ul class="text-1">
+						<li class="text-2">选择路线</li>
+						<li class="text-3">填写订单</li>
+						<li class="text-4">在线支付</li>
+						<li class="text-5">付款成功</li>
+					</ul>
+				</div>
+			</div>
+			<div id="list-2">
+				<div class="list-2-l">
+					<div class="list-2-l-t">
+						<div class="infor">线路信息</div>
+						<div class="btn">修改</div>
+					</div>
+					<div class="list-2-l-b">
+						<ul class="infor-1">
+							<li class="infor-2">线路名称:&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160<span>[北京出发]<a href="#">经奢自驾八人小团:云南落地自驾行摄7日之旅<a></span></li>
+							<li class="infor-3 infor-a">出游日期*:&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160<span>2016-01-17</span></li>
+							<li class="infor-3 infor-b">成人*:&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160<span>1 x ￥5280</span></li>
+							<li class="infor-3 infor-c">儿童:&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160<span>0 x ￥5280</span></li>
+							<li class="infor-3 infor-d">房间*:&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160&#160<input id="span-2" value="-"><input type="text" id="span-3" value="1"><input type="text" id="span-4" value="+"><span></span>&#160&#160(2人间)</li>
+							<li class="infor-3 infor-e">是否同意拼房*:&#160&#160&#160&#160&#160&#160<input  checked="ture" class="inp-1" type="radio" name="txt" class="{required:ture}">&#160&#160&#160&#160&#160<span>同意拼房</span><span class="span-1"><input class="inp-1" type="radio" name="txt">&#160&#160&#160&#160不同意拼房，愿意支付房差费用￥3500</span></li>
+						</ul>
+					</div>
+				</div>
+				<div class="list-2-r">
+					<ul class="body-1">
+						<li class="li-1">订单信息</li>
+						<li class="li-2"><span class="span-a">成人</span>
+						<span class="span-b">1 X ￥5280</span>
+						<span class="span-c">房间 X 1</span>
+						<span class="span-p"></span>
+						</li>
+						<li class="li-3"><span>意外旅游险 </span><span class="span-d">1 x ￥120</span></li>
+						<li class="li-4"><span>优惠金额</span><span class="span-d">-￥0</span></li>
+						<li class="li-5"><span class="span-f">总计</span><span class="span-e">￥5400</span></li>
+					</ul>
+				</div>
+			</div>
+			<div id="list-3">
+				<div class="tag">
+					<ul class="tag-1">
+						<li class="tag-2">费用说明</li>
+						<li class="tag-3">退改规则</li>
+					</ul>
+				</div>
+				<div class="div-1">
+					<ul>
+						<li>费用包含：</li>
+						<li class="div-3">*+7x24小时优秀中/英双语自驾向导服务（国内出发，全程陪同）；</li>
+						<li class="div-3">*+国内往返美国经济舱机票、燃油附加税、机票税；</li>
+						<li class="div-3">*+包含好莱坞环球影城+17英里海岸门票；</li>
+						<li class="div-3">*+美国当地钻酒店住宿；</li>
+						<li class="div-4"><span>阅读全部</span>
+							<li class="div-5"></li></li>
+					</ul>
+				</div>
+				<div class="div-2"></div>
+			</div>
+			<div id="list-4">
+				<div class="link"><span class="link-2">联系人信息</div>
+				<div class="link-1">
+					<form class="link-a" id="commentForm" method="get" action="">
+						<ul>
+							<li class="link-b">
+								<label for="cname">姓名*</label>
+								<input type="text"placeholder="请输入2-3位姓名" id="cname" name="name" minlength="2" messages="请输入姓名" required>
+								<!-- <div class="reg_1"></div> -->
+							</li>
+							<!-- <div class="reg_1"></div> -->
+							<li class="link-c"><span>性别</span>
+							<input type="radio" name="kk" checked="ture" class="inp-3">男<input class="inp-4" type="radio" name="kk">女
+							</li>
+							<li class="link-d"><span>手机号码*</span><input type="text" placeholder="请输入11位手机号码" id="aname"></li>
+							<li class="link-e"><span>邮箱*</span><input type="text" placeholder="请输入邮箱" id="bname"></li>
+						</ul>
+						<div class="reg_1"></div>
+						<div class="reg_2"></div>
+						<div class="reg_3"></div>
+					</form>
+				</div>
+			</div>
+			<div id="list-5">
+				<div class="div-5-t">
+					<div class="div-5-t-l">
+						游客信息
+					</div>
+					<div class="div-5-t-r">常用游客</div>
+				</div>
+				<div class="div-5-c">
+					<ul>
+						<li class="c-1">游客1</li>
+						<li class="c-2"><span>游客类型</span>
+							<input type="radio" name="nn" checked class="in-1">&#160成人<input type="radio" name="nn" class="in-2">&#160儿童
+						</li>
+						<li class="c-3"><span>姓名*</span>
+							<select name="messagePick" class="in-3">
+								<option value="0">中文
+								<option>英语
+							</select>
+							<input type="text" class="in-4" placeholder="请输入2-3位姓名" id="dname"></li>
+						<li class="c-4"><span>性别</span><input type="radio" name="qq" checked class="in-a">&#160男<input type="radio" name="qq" class="in-b">&#160女</li>
+						<li class="c-5"><span>手机号码</span><input type="text" placeholder="请输入11位手机号码" id="ename"></li>
+						<li class="c-6"><span>证件*</span>
+							<select name="messagePick" class="in-11">
+			<option value="0">护照
+			<option>身份证
+			<option>军官证
+		</select>
+							<input type="text" placeholder="请输入18位证件号码" class="in-12" id="fname"></li>
+					</ul>
+				</div>
+				<div class="c-7">
+					<a href="#list-5"><div class="c-14">+&#160添加乘客</div>
+					</a>
+				</div>
+				<div class="reg_4"></div>
+				<div class="reg_5"></div>
+				<div class="reg_6"></div>
+			</div>
+			<div id="list-6">
+				<div class="t-6-1">
+					<div class="t-6-2">保险</div>
+					<a href="#"><div class="t-6-3">详情></div></a>
+				</div>
+				<div class="t-6-4">
+					<input type="checkbox" name="ll" checked>
+					<div class="t-1">平安爱自驾境外长线保险</div>
+					<div class="t-2">经典型2份</div>
+					<div class="t-3"><span>￥177</span>/一份</div>
+				</div>
+				<div class="t-6-5">
+					<input type="checkbox" name="ll">
+					<div class="t-1">平安爱自驾境外长线保险</div>
+					<div class="t-2">经典型2份</div>
+					<div class="t-3"><span>￥177</span>/一份</div>
+				</div>
+			</div>
+			<div id="list-7">
+				<div class="l-1"><span>预订信息</span></div>
+				<div class="l-2">
+					<ul>
+						<li class="k-1">
+							<span>发票信息:</span>
+							<span class="k-2">是否需要发票:</span>
+							<input type="radio" checked class="k-3" name="bb">&#160是<input type="radio" class="k-4" name="bb">&#160否
+						</li>
+						<li class="o-1">
+							<span>发票抬头:</span>
+							<input type="text" class="o-2" placeholder="请输入发票抬头">
+						</li>
+						<li class="b-1">
+							<span>发票明细:</span>
+							<select name="" class="b-2">
+								<option value="0">会议费</option>
+								<option value="">住宿费</option>
+							</select>
+							<div class="g-1">
+								<span>配送地址:</span>
+								<input type="text" class="g-2" placeholder="请输入配送地址">
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="p-1"><a href="#">更多要求>></a></div>
+			</div>
+			<div id="list-8">
+				<div class="j-1">总价：1 x ￥5280 + 1 x ￥120 + 1 x ￥170 = ￥5570</div>
+				<div class="j-2">
+					<input type="radio">
+					&#160已阅读爱自驾条款,并同意
+				</div>
+				<input type="submit" class="submit" value="确认订单并提交">
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div id="footer_top">
+			<div class="f_top_box">
+				<ul>
+					<a href=""><li class="list1">民交通出版社</li></a>
+					<a href=""><li class="list2">爱自驾</li></a>
+					<a href=""><li class="list3">联系我们</li></a>
+					<a href=""><li class="list4">友情链接</li></a>
+					<a href=""><li class="list5">爱自驾品牌店</li></a>
+
+				</ul>
+			</div>
+		</div>
+		<div id="footer_bottom">
+			<div class="f_bottom_box">
+				<a href="">人民交通出版社股份有限公司</a>
+				<a class="foo_b_text" href="">京ICP备15018898号-1</a>
+			</div>
+		</div>
+
+
+	</div>
+	<script src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+	<script>
+	function navChange(){
+			$("#nav li").click(function(){
+				$(this).addClass("love");
+				$(this).siblings().removeClass("love");
+				var sibName =  $(this).siblings().attr("class");
+				console.log(sibName)
+				$(this).css({"background-color":"#50bbdb","border-bottom":"2px solid #000"});
+				$(this).siblings().css({"background-color":"#ffffff","border-bottom":"0px solid #000","color":"#000"});
+				$(this).css({"color":"#fff"});
+			});
+
+			$("#nav li").mouseenter(function(){
+				$(this).css({"background-color":"#50bbdb","border-bottom":"2px solid #000"});
+				$(this).siblings().css({"background-color":"#ffffff","border-bottom":"0px solid #000","color": "#000"});
+				$(this).siblings(".love").css({"background-color":"#50bbdb","border-bottom":"2px solid #000","color":"#fff"})
+				$(this).css({"color":"#ffffff"})
+			});
+			$("#nav li").mouseleave(function(){
+
+				$(this).css({"color":"#fff"})
+				$(this).siblings().css({"color": "#000" })
+				$(this).siblings(".love").css({"background-color":"#50bbdb","border-bottom":"2px solid #000","color":"#fff"})
+
+			});
+//
+		};
+		navChange();
+		// cityChange
+		$(function(){
+
+			$(".change").click(function(a){
+				$("#allCity").slideDown(0);
+				a.stopPropagation();
+				// $(this).blur()
+			});
+
+			$("#allCity").click(function(a){
+				a.stopPropagation();
+			});
+
+			$(document).click(function(a){
+				a.button!=2&&$("#allCity").slideUp(0);
+			});
+
+			$("#foldin").click(function(){
+				$("#allCity").slideUp(0)
+			});
+			$(".selcity a").click(function(){
+				var x = $(this).text();
+				$(".city").text(x);
+			});
+			$(".allCity").click(function(){
+				$(".city").text("全国");
+			});
+			$(".noCity").click(function(a){
+				a.button!=2&&$("#allCity").slideUp(0);
+			});
+		});
+		$(function(){
+			$(".baidu").mouseenter(function(){
+				$(".head_left .map").attr("src","img/地址小灯_改变.png");
+				$(".head_left .city").css("color","#50bbdb")
+				$(".head_left .change").css("color","#50bbdb")
+			});
+			$(".baidu").mouseleave(function(){
+				$(".head_left .map").attr("src","img/地址小灯.png");
+				$(".head_left .city").css("color","#fff")
+				$(".head_left .change").css("color","#fff")
+			});
+			$("#denglu").mouseenter(function(){
+				$("#denglu").css("color","#50bbdb")
+
+			});
+			$("#denglu").mouseleave(function(){
+				$("#denglu").css("color","#fff")
+
+			});
+			$(".app").mouseenter(function(){
+				$(".app .pc").attr("src","img/手机APP_改变.png");
+				$(".app .aPc").css("color","#50bbdb")
+
+			});
+			$(".app").mouseleave(function(){
+				$(".app .pc").attr("src","img/手机APP.png");
+				$(".app .aPc").css("color","#fff")
+
+			});
+			$("#zhuce").mouseenter(function(){
+				$("#zhuce").css("color","#50bbdb")
+
+			});
+			$("#zhuce").mouseleave(function(){
+				$("#zhuce").css("color","#fff")
+
+			});
+			$(".imgW").mouseenter(function(){
+				$(".imgW").attr("src","img/微博_change.png");
+			});
+			$(".imgW").mouseleave(function(){
+				$(".imgW").attr("src","img/微博.png");
+			});
+			$(".imgQ").mouseenter(function(){
+				$(".imgQ").attr("src","img/QQ_change.png");
+			});
+			$(".imgQ").mouseleave(function(){
+				$(".imgQ").attr("src","img/QQ.png");
+			});
+		});
+
+		// 模态窗口中的事件代码
+		$(function(){
+    		$('.mfymodaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".mfyhidemodal"});
+  		});
+  		$(".mfymodaltrigger").click(function(){
+  			$("body").addClass("mfybodyclass");
+  		});
+  		$(".mfyclose").click(function(){
+      		$("#mfylean_overlay").fadeOut(200);
+      		$("#mfyloginmodal").css("display","none");
+      		$("#mfysignup").css("display","none");
+      		$("body").removeClass("mfybodyclass");
+  		});
+  		// 以上是模态窗口中的事件代码
+		$(".tag-2").mouseenter(function(){
+			$(".div-1").css("display","block")
+			$(".div-2").css("display","none")
+		})
+		$(".tag-3").mouseenter(function(){
+			$(".div-1").css("display","none")
+			$(".div-2").css("display","block")
+		})
+		$(".div-4").click(function(){
+			$(".div-5").slideDown();
+		})
+		$(".div-4").mouseleave(function(){
+			$(".div-5").css("display","none")
+		})
+		$(".in-3").mouseenter(function(){
+			$(".in-5").slideDown();
+		})
+		$(".b-2").mouseenter(function(){
+			$(".b-3").slideDown();
+		})
+		$(".b-2").mouseleave(function(){
+			$(".b-3").slideUp();
+		})
+		$("#span-2").click(function(){
+			var val=$("#span-3").val();
+			if(val>0){
+				val--;
+			}else{
+				val==0;
+			}
+			$("#span-3").val(val);
+		})
+		$("#span-4").click(function(){
+			var val=$("#span-3").val();
+			val++;
+			$("#span-3").val(val);
+		})
+		$(".tag-2").mouseenter(function(){
+			$(this).css("background-image","url(img/1.png)")
+			$(".tag-3").css("background-image","none");
+		})
+		$(".tag-3").mouseenter(function(){
+			$(this).css("background-image","url(img/1.png)");
+			$(".tag-2").css("background-image","none");
+		})
+		$(".in-1").click(function(){
+			var txt ="￥3500";
+			var txt1=document.createTextNode(txt);
+			$(".span-p").appendChild(txt1);
+		})
+		// $(".j-2 input").click(function(){
+		// 	$(".j-3").css("background-color","#4BD16B")
+		// })
+		var oJ = document.getElementsByClassName("submit");
+		for(var i=0;i<oJ.length;i++){
+			oJ[i].onclick = function(){
+				this.style.backgroundColor="#23bfee"
+			}
+		}
+		$(".rute-2").click(function(){
+			$(this).text("");
+			var $img = $("<img src='img/支付对勾.png'>")
+			$(this).append($img);
+			$(this).css("color","#e5e5e5")
+			$(".text-2").css("color","#50bbdb")
+				})
+		$(".rute-4").click(function(){
+			$(this).text("");
+			var $img = $("<img src='img/支付对勾.png'>")
+			$(this).append($img);
+			$(this).css("color","#e5e5e5")
+			$(".text-3").css("color","#50bbdb")
+				})
+		$(".rute-6").click(function(){
+			$(this).text("");
+			var $img = $("<img src='img/支付对勾.png'>")
+			$(this).append($img);
+			$(this).css("color","#e5e5e5")
+			$(".text-4").css("color","#50bbdb")
+				})
+		$(".rute-8").click(function(){
+			$(this).text("");
+			var $img = $("<img src='img/支付对勾.png'>")
+			$(this).append($img);
+			$(this).css("color","#e5e5e5")
+			$(".text-5").css("color","#50bbdb")
+				})
+		var reg=/^[\u4e00-\u9fa5]{2,3}$/
+		$("#cname").blur(function(){
+			var val = $("#cname").val();
+			var result = reg.exec(val);
+			console.log(result);
+			if(result==null){
+				$(".reg_1").text("请输入正确格式姓名").addClass("active").removeClass("active1");
+			}else{
+				$(".reg_1").text("输入正确").addClass("active1").removeClass("active");
+			}
+		})
+		var reg_1=/^[0-9]{11}$/
+		$("#aname").blur(function(){
+			var val = $("#aname").val();
+			var result = reg_1.exec(val);
+			console.log(result);
+			if(result==null){
+				$(".reg_2").text("请输入正确手机号码").addClass("active").removeClass("active1");
+			}else{
+				$(".reg_2").text("输入正确").addClass("active1").removeClass("active");
+			}
+		})
+		var reg_2=/^[0-9a-z]{1,15}\@[0-9a-z]{1,15}\.com$/
+		$("#bname").blur(function(){
+			var val = $("#bname").val();
+			var result = reg_2.exec(val);
+			console.log(result);
+			if(result==null){
+				$(".reg_3").text("请输入正确邮箱").addClass("active").removeClass("active1");
+			}else{
+				$(".reg_3").text("输入正确").addClass("active1").removeClass("active");
+			}
+		})
+		$("#dname").blur(function(){
+			var val = $("#dname").val();
+			var result = reg.exec(val);
+			console.log(result);
+			if(result==null){
+				$(".reg_4").text("请输入正确格式姓名").addClass("active").removeClass("active1");
+			}else{
+				$(".reg_4").text("输入正确").addClass("active1").removeClass("active");
+			}
+		})
+		$("#ename").blur(function(){
+			var val = $("#ename").val();
+			var result = reg_1.exec(val);
+			console.log(result);
+			if(result==null){
+				$(".reg_5").text("请输入正确手机号码").addClass("active").removeClass("active1");
+			}else{
+				$(".reg_5").text("输入正确").addClass("active1").removeClass("active");
+			}
+		})
+		var reg_5=/^[0-9]{18}$/
+		$("#fname").blur(function(){
+			var val = $("#fname").val();
+			var result = reg_5.exec(val);
+			console.log(result);
+			if(result==null){
+				$(".reg_6").text("请输入正确证件号码").addClass("active").removeClass("active1");
+			}else{
+				$(".reg_6").text("输入正确").addClass("active1").removeClass("active");
+			}
+		})
+		function pageChangePay(){
+			$(".submit").click(function(){
+				window.location.href="index自驾团在线支付页面.html";
+			})
+
+		}
+		 pageChangePay()
+	</script>
+</body>
+</html>
