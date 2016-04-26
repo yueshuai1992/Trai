@@ -1,0 +1,120 @@
+@charset "utf-8";
+*{margin:0;padding:0;
+	list-style-type:none;
+}
+a,img{border:0;}
+/*body{
+	font:12px/180% Arial,
+ 	Helvetica, sans-serif, 
+ 	"新宋体";
+ }*/
+table{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+/* header */
+
+
+/*.header{
+	background:red;
+	width: 500px;
+	height:32px;
+}*/
+.header .topctiy{
+	height:22px;
+	padding:4px 10px 0 0;
+}
+.header .topctiy ul{
+	float:left;
+}
+.header .topctiy li{
+	padding:0 10px;
+	display:inline;
+	float:left;
+	margin-left:3px;
+	line-height:22px;
+}
+.header .topctiy li.i1{
+	padding:0px 13px;
+	font-weight:bold;
+	font-size:14px;
+}
+.header .topctiy li.i2{
+	cursor:pointer;
+}
+.header .topctiy li a{
+	color:#fff;
+}
+.header .topctiy li a:hover{
+	color:#fff;
+}
+/* selcity */
+
+.selcity{
+	width:712px;
+	height: 114px;
+	padding:2px 0 4px 0;
+	z-index:10;
+	border: 2px #cccccc solid;
+	border-radius: 6px;
+	background-color:#fff;
+	position:absolute;
+	top:45px;
+}
+.selcity .none{
+	left:215px;
+	bottom:-18px;
+	position:absolute
+}
+.selcity .none a{
+	display:block;
+	background:url(../images/tuan_bg15.gif) no-repeat;
+	width:68px;
+	text-indent:-3000px;
+	height:21px;
+	text-decoration:none
+}
+.selcity .none a:hover{
+	display:block;
+	text-indent:-3000px;
+	height:21px;
+	text-decoration:none}
+.selcity table{
+	margin-left:5px;
+	/*表格宽度*/
+	width:680px; 
+	border-collapse:collapse;
+	text-align: center;
+}
+.selcity table td{
+	/*单元格样式*/
+	/*border:#8b3d3b 1px dashed;*/
+	font-size:14px;
+	vertical-align:middle;
+	width:100px;
+	color:#fff;
+	height:29px;
+	text-align:center
+}
+.selcity table td a{
+	/*单元格内容样式*/
+	display:block;
+	color:#fff;
+	line-height:20px;
+	height:20px;
+	color: #6ac2dd;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	text-decoration:none;
+}
+.selcity table td .allCity{
+	padding-left: 5px;
+	color: #666666;
+	font-weight: bold;
+}
+.selcity table td a:hover{
+	background:#f1fafa;
+	text-decoration:none}
+/*.selcity table td a.cur{
+	background:#a86e6d
+}*/

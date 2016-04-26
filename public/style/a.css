@@ -1,0 +1,47 @@
+
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.picbox{
+				width: 500px;
+				height: 346px;
+				/*border:1px solid #f00;*/
+			}
+			#featured{
+				width: 500px;
+				height: 281px;
+				margin-bottom: 7px;
+				/*overflow: hidden;*/
+			}
+			#thumbs{
+				width: 500px;
+				height: 55px;
+				/*background-color: #0f0;*/
+			}
+			.image{
+				width: 500px;
+				height: 281px;
+			}
+			.image img{
+				width: 500px;
+				height: 281px;
+			}
+			#thumbs{
+				width: 500px;
+				height: 55px;
+				margin-top: 8px;
+				/*border: 1px solid #f00;*/
+			}
+			.slideshowItem{
+				width: 100px;
+				height: 55px;
+				margin-right: 8px;
+			}
+			#play_next{
+				/*width: 28px;
+				height: 55px;*/
+			
+			}
+			
+			

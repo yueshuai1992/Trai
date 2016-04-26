@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- 日历 样式-->
+	<link rel="stylesheet" href="日历/style/fullcalendar.css">
+	<link rel="stylesheet" href="日历/style/fullcalendar.print.css" media='print'>
+	<link rel="stylesheet" href="日历/style/main.css">
+	<!-- 日历 样式-->
+	<link rel="stylesheet" type="text/css" href="style/自驾团详情页.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.5-dist/css/bootstrap.css">
+	<link href="style/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="style/a.css">
+	<link rel="stylesheet" type="text/css" href="style/tcal.css" />
+	<link rel="stylesheet" type="text/css" href="style/main_自驾团在线支付页面.css">
+	<script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="js/slide.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/tcal.js"></script>
+	<script type="text/javascript"src="js/jQselectable.js"></script>
+	<script type="text/javascript"src="js/order.js"></script>
+	<script src='日历/js/moment.min.js'></script>
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script src='日历/js/jquery.min.js'></script>
+	<script src='日历/js/fullcalendar.js'></script>
+</head>
+<body>
+	<div id="header">
+		<div class="header_box">
+			<div class="head_left">
+				<img src="images/地址小灯.png" alt="">
+				<a href="">北京</a>
+				<a class="change" href="">切换</a>
+				<img class="pc" src="images/手机APP.png" alt="">
+				<a  class ="aPc" href="">下载手机APP</a>
+			</div>
+			<div class="head_right">
+				<a href="">登录 | 注册</a>
+				<img class="imgW" src="images/微博.png" alt="">
+				<img class="imgQ" src="images/QQ.png" alt="">
+
+			</div>
+		</div>
+	</div>
+	<div id="nav">
+		<div id ="nav_box">
+			<img src="images/logo.png" alt="">
+			<ul>
+				<li>首页</li>
+				<li>目的地</li>
+				<li>线路</li>
+				<li>订制</li>
+				<li>自驾团</li>
+				<li>摄影</li>
+				<li>互动</li>
+				<li>精选</li>
+				<li>预订</li>
+			</ul>
+		</div>
+
+	</div>
+	<div id="containter">
+		<div id="big1">
+			<div id="cin1">
+			<ul class="list">
+				<li>首页       >  <!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> --></li>
+				<li> 自驾团    > <!--  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"> --></li>
+				<li> 自驾团境内</li>
+			</ul>
+			</div>
+		</div>
+		<div id="cin2">
+				<p>分享</p>
+				<div class="box1"><a href="http://t.qq.com/?pgv_ref=im.perinfo.perinfo.icon"><img src="images/1.gif" class="ect1"></a></div>
+				<div class="box2"><a href="http://weibo.com"><img src="images/2.gif" class="ect2"></a></div>
+				<div class="box3"><a href="http://qzone.qq.com"><img src="images/3.gif" class="ect3"></a></div>
+				<div class="box4"><a href=""><img src="images/4.gif" class="ect4"></a></div>
+			</div>
+		<div id="big2">
+			<div id="pic">
+				<div class="picbox">
+					<div id="featured">
+						<div class="image" id="image_pic-01">
+							<a href="http://www.internetke.com/" target="_blank"><img src="images/1.jpg" alt=""></a>
+							<div class="word"></div>
+						</div>
+						<div class="image" id="image_pic-02">
+							<a href="http://www.internetke.com/" target="_blank"><img class="pic-02"src="images/2.png" alt=""></a>
+							<div class="word"></div>
+						</div>
+						<div class="image" id="image_pic-03">
+							<a href="http://www.internetke.com/" target="_blank"><img class="pic-03"src="images/6.jpg" alt=""></a>
+							<div class="word"></div>
+						</div>
+						<div class="image" id="image_pic-04" >
+							<a href="http://www.internetke.com/" target="_blank"><img class="pic-04"src="images/7.jpg" alt=""></a>
+							<div class="word"></div>
+						</div>
+						<!-- <div class="image"  id="image_pic-05">
+							<img class="pic-05"src="images/9.jpg" alt="">
+						</div> -->
+					</div>
+					<div id="thumbs">
+						<ul>
+							<li class="first btnPrev"><img   id="play_prev" src="images/left.gif" alt=""></li>
+							<li class="slideshowItem"><a id="thumb_pic-01" href="javascript:" class="current"><img src="images/1.jpg" width="100" height="55"></a></li>
+							<li class="slideshowItem"><a id="thumb_pic-02" href="javascript:"><img src="images/2.png"width="100" height="55"></a></li>
+							<li class="slideshowItem"><a id="thumb_pic-03" href="javascript:"><img src="images/6.jpg"width="100" height="55"></a></li>
+							<li class="slideshowItem"><a id="thumb_pic-04" href="javascript:"><img src="images/7.jpg" width="100" height="55"></a></li>
+							<!-- <li class="slideshowItem"><img src="images/9.jpg" width="100" height="55"></li> -->
+							<li class="last btnNext"><img src="images/right.gif"id="play_next"></li>
+						</ul>
+					</div>
+				</div>
+				<div class="main">
+					<div id='calendar' ></div>
+					<div class = "YScapacity">
+						<div class="YS_C_top">
+							<span>出游日期：</span>
+							<input type="date" defaultValue="nihao">
+						</div>
+						<div class="YS_C_cneter">
+							<span>出发城市：</span>
+							<input type="text" >
+						</div>
+						<div class="YS_C_bottom">
+							<span>出游人数：</span>
+							<ul>
+								<li class="YSlist1">-</li>
+								<li class="YSlist2">1</li>
+								<li class="YSlist3">+</li>
+								<li class="YSlist4">成人</li>
+								<li class="YSlist5">-</li>
+								<li class="YSlist6">1</li>
+								<li class="YSlist7">+</li>
+								<li class="YSlist8">儿童</li>
+							</ul>
+						</div>
+						<div class="YS_C_submit">
+							<a href="../自驾团订制.html">我要报名</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="side">
+				<span class="first">云南落地自驾行摄之旅</span>
+				<div class="pro-box">
+					<p class="pro">
+					<span class="tele">大地之画东川红土地，光与影精美搭配的元阳梯田，一个摄影穿</span><span>
+					越的天堂……</span>
+					</p>
+					<p class="pro">
+					<span class="tele">大地的调色板东川红土地，被称为光与影精美搭配的元阳梯田；这</span><span>
+					些地方，见过便终生难忘，那瑰丽的色彩，那历经亿万年的修炼，那亘</span><span>
+					古不变的华丽，灼痛了世人的双眼，最美的季节记录最美的影像，探寻</span><span>
+					最美的风景……
+					</span>
+					</p>
+					<p class="pro"><span class="tele"> 这是一次记录大地色彩之美的摄影旅行。</span></p>
+					<p class="pro"><span class="tele">这是享誉摄影世界的世界级摄影旅行目的地，这里没有都市的喧嚣</span><span>
+					与烦躁，没有钢筋森林给人带来的种种压抑；这里是放飞心灵的地方，</span><span>
+					也是您涤荡心灵的梦幻旅程。</span></p>
+				</div>
+				<div id="small">
+					<div class="read1">
+						<p class="fox1">爱自驾价:<span>￥</span><span class="fox">4580</span><span>起</span></p>
+					</div>
+					<div class="read">
+						<p><a href="../自驾团订制.html">我要报名</a></p>
+					</div>
+					<div class="read2">
+						<img class="img1"src="images/a.png" alt="">
+						<img class="img2"src="images/a实心.png" style="display:none">
+						<p>收藏</p>
+					</div>
+				</div>
+				<div class="put">
+					<span class="diff3">出游日期:</span><!-- <select style="width:350px;height:30px; color:#999999">
+						<option value="a"><span class="ref">请选择出发日期</span></option>
+					</select></br> -->
+					<input type="date" class="YS_RL_date" style="width:350px;height:30px;color:#999999"></br>
+					<span class="diff3">出发城市:</span><input class="YS_RL_text" type="text" style="width:350px;height:30px" value="" placeholder="北京"></br>
+					<div class="diff">
+						<span class="diff3">出游人数：</span>
+						<ul class="ligth">
+						<li class="minus1">-</li>
+						<li class="num1">0</li>
+						<li class="add1">+</li>
+						</ul>
+						<span class="diff1">成人</span>
+						<ul class="ligth">
+						<li class="minus2">-</li>
+						<li class="num2">0</li>
+						<li class="add2">+</li>
+						</ul>
+						<span class="diff1">儿童</span>
+						<span class="diff2">儿童标准</span>
+					</div>
+					<div class="reg">
+						<span class="diff4">行程概要：</span>
+						<p class="log">昆明—建水—元阳—元江—玉溪—东川—昆明</p>
+						<p class="log1"><a href="">详情>></a></p>
+					</div>
+
+
+				</div>
+				<div class="per">
+					<img src="images/person.png" class="pot1">
+					<img src="images/箭头.jpg" class="pot">
+					<p>量身定制 专属行程 独立包团</p>
+				</div>
+			</div>
+		</div>
+		<div class="big3">
+			<div class="ser1">
+				<img src="images/蓝条.gif" alt="">
+				<p>领队介绍</p>
+			</div>
+			<div class="large">
+				<div class="ser2">
+					<img src="images/中国自驾游logo.jpg" alt="">
+					<p><span>中国自驾游联盟南京</span><span class="spe">
+				 	站</span></p>
+				</div>
+				<div class="ser3">
+					<p><span>自2005年开始，南京首家专业自驾车旅游公司——“中国自驾游联盟”，本着以城市为中心,以旅行社为龙头,以自驾游自</span><span>助游为纽带的发展宗旨,通过强劲发展,现已覆盖全国20个省200多个城市，总部设在南京，在“专业保障，旅游保险，特色</span><span>活动，媒体支撑”的指导思想指引下，平均年组织车友实施自驾游旅游活动百余次，参加人员达数万人！近年来，我们策</span><span>
+					划与服务的自驾游车队达400余个，参加车辆超过2000辆，参加的车友近十万多人次！ 我们的行程遍布华南、华中、华北</span><span>、西南、西北20余省、区，并多次成功举办主题自驾活动，同时在尝试开辟国外自驾游市场，引导及推动着中国自驾游的</span><span>方向与潮流，赢得了广大媒体与各路车会的关注与信任，成为本地区自驾游最具活力、最具经验、最具规模、最具口碑的</span><span>
+					专业机构</span>	</p>
+				</div>
+			</div>
+		</div>
+		<div class="big4">
+			<div class="srr1">
+				<p>历史组团</p>
+			</div>
+			<div class="srr2">
+				<div class="active">
+					<img src="images/左三角.gif" alt="">
+				</div>
+				<div class="box-e">
+					<div class="act1">
+					<img src="images/海天佛国 普陀山祈福之旅.jpg" alt="">
+					<p><span>海天佛国  普陀</span><span>山祈福之旅</span></p>
+					<span class="date">2015-01-03</span>
+				</div>
+				<div class="act3">
+					<img src="images/冰雪圣地呼伦贝尔 冬季那达慕自驾.jpg" alt="">
+					<p><span>冰雪呼伦贝尔</span><span>冬季那达慕自</span><span>驾</span></p>
+					<span class="date1">2015-12-30</span>
+				</div>
+				<div class="act5">
+					<img src="images/食在广东 粤菜美食6日自驾.jpg" alt=""
+					>
+					<p><span>食在广东粤菜</span><span>美食自驾之旅</span></p>
+					<span class="date">2015-12-29</span>
+				</div>
+				<div class="act7">
+					<img src="images/彩云之南 边关秘境 发现之旅.jpg" alt="">
+					<p><span>彩云之南边关</span><span>秘境</span></p>
+					<span class="date">2015-01-03</span>
+				</div>
+				<div class="act9">
+						<img src="images/澳洲莫宁顿半岛及大洋路自驾之旅.jpg" alt="">
+				<div class="def"><p><span>彩云之南边关</span><span>秘境</span></p>
+					<span class="date">2015-01-03</span></div>
+				</div>
+				</div>
+
+				<div class="active2">
+					<img src="images/右三角.gif" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="big5">
+			<ul class="nav-lity">
+				<li class="lit">行程简介</li>
+				<li class="lit1">费用明细</li>
+				<li class="lit2">其他说明</li>
+				<li class="lit3">用户评论</li>
+			</ul>
+			<div class="large-box">
+				<div class="inner1">
+					<div class="insmall">
+						<img src="images/行程简介.gif" alt="">
+						<div class="bar">
+						</div>
+					</div>
+					<div class="page-large">
+							<div class="day">
+								<ul class="text">
+									<li class="YSlistt1">第一天</li>
+									<li class="YSlistt2">第二天</li>
+									<li class="YSlistt3">第三天</li>
+									<li class="YSlistt4">第四天</li>
+									<li class="YSlistt5">第五天</li>
+									<li class="YSlistt6">第六天</li>
+									<li class="YSlistt7">第七天</li>
+								</ul>
+								<ul class="cicle">
+									<li class="cicle1"><img src="images/时钟圆.gif" alt=""></li>
+									<li class="cicle2"><img src="images/小圆.gif" alt=""></li>
+									<li class="cicle3"><img src="images/详情.gif" alt=""></li>
+									<li class="cicle4"><img src="images/小圆.gif" alt=""></li>
+									<li class="cicle5"><img src="images/小圆.gif" alt=""></li>
+									<li class="cicle6"><img src="images/小圆.gif" alt=""></li>
+									<li class="cicle7"><img src="images/小圆.gif" alt=""></li>
+									<li class="cicle8"><img src="images/小圆.gif" alt=""></li>
+								</ul>
+							</div>
+							<div class="page">
+								<div class="stree">
+									<p class="sec">第二天</p>
+									<div class="sml">
+										<p>昆明—建水 </p>
+									</div>
+									<div class="eat">
+										<p><span>餐食：早餐、晚餐</span><span>住宿：建水</span>  </p>
+										<p class="spa">酒店早餐后，前往由传统的汉族青砖四合大院、彝族土掌房和汉彝结合的瓦檐土掌房三类建筑风格结合的民居世界—
+										—团山民居，团山至今还保存着的完整古村落整体格局，有着滇南乡村特色风貌与传统社会人文环境的原生态特点，
+										世所罕见，极为珍贵。到达建水县城后，前往参观朱家花园，有一组规模宠大的清代民居建筑，有“滇南大观园”之
+										誉！房间内的床，凳，桌，椅均采用紫木雕刻，体现清代风格，门僮及导游小姐的服饰和接待客人的清式礼仪，让人
+										有恍若置身百年前历史生活的感受。</p>
+										<img src="images/院左.png" alt="">
+										<img src="images/院右.jpg" alt="">
+									</div>
+								</div>
+								<div class="third">
+									<div class="eff">
+										<p>第三天</p>
+									</div>
+									<div class="eff1">
+										<p>建水—元阳 </p>
+									</div>
+									<div class="eat2">
+										<p><span>餐食：早餐、晚餐</span><span>住宿：元阳</span>  </p>
+										<p class="spy">
+											酒店早餐后，前往中国最美的元阳梯田。元阳哈尼梯田主要有三大核心区组成——【坝达景区】、【老虎嘴景区】、
+											【多依树景区】，去老虎嘴俯看梯田是很好的选择，6000多亩梯田分布于深谷，像一朵巨大的花蕊，老虎嘴被美国
+											摄影家称为世界上最壮丽的田园风光；晚上看夕阳，则应该选择坝达景区，在龙树坝拍日落也是不错的选择；感受大
+											自然的鬼斧神工，19万亩映着蓝天的哈尼梯田就在你的脚下，哈尼梯田有一千多年的历史，至今科学仍无法解答，这
+											样大面积的，在这崇山峻岭中是怎么挖掘的。
+										</p>
+										<img src="images/山左.jpg" alt="">
+										<img src="images/山右.jpg" alt="">
+									</div>
+								</div>
+								<div class="four">
+									<div class="eff4">
+										<p>第四天</p>
+									</div>
+									<div class="eff5">
+										<p>建水—元阳 </p>
+									</div>
+									<div class="eat6">
+										<p><span>餐食：早餐、晚餐</span><span>住宿：元阳</span>  </p>
+										<p class="spy">
+											酒店早餐后，前往中国最美的元阳梯田。元阳哈尼梯田主要有三大核心区组成——【坝达景区】、【老虎嘴景区】、
+											【多依树景区】，去老虎嘴俯看梯田是很好的选择，6000多亩梯田分布于深谷，像一朵巨大的花蕊，老虎嘴被美国
+											摄影家称为世界上最壮丽的田园风光；晚上看夕阳，则应该选择坝达景区，在龙树坝拍日落也是不错的选择；感受大
+											自然的鬼斧神工，19万亩映着蓝天的哈尼梯田就在你的脚下，哈尼梯田有一千多年的历史，至今科学仍无法解答，这
+											样大面积的，在这崇山峻岭中是怎么挖掘的。
+										</p>
+										<img src="images/加州一号公路＋夏威夷浪漫自驾之旅.jpg" alt="">
+										<img src="images/恋上那片海 风情涠洲岛5日自驾.jpg" alt="">
+									</div>
+								</div>
+
+							</div>
+					</div>
+					<div class="spend">
+						<div class="insmall2">
+							<img src="images/费用明细.gif" alt="">
+							<div class="bar2"></div>
+						</div>
+						<p class="spe1">
+						<span>【活动费用】4580元/人</span><span>【VIP会员价】4500元/人</span><span>【儿童费用】2500元/人（1.1米-1.4米不占床）</span>
+						</p>
+						<p class="include">【费用包含】</p>
+						<p class="spn"><span>
+						1、交通：起亚狮跑或现代IX35（4人1车，1000元/人，如不足4人1车，需补车费）</span><span>2、通讯：通讯设备，车标，车队出行的后勤服务>组织费用</span><span>3、用餐：6早6晚，（晚餐60元/人）</span><span>4、住宿：建水住五星标准；昆明，元阳，玉溪住四星标准；东川红土地住三星标准</span><span>5、保险：太平洋旅游意外险</span><span>6、领队：优秀领队及当地导游服务</span><span>7、景点：建水朱家花园，团山民居，元阳梯田，红河那诺梯田，东川红土地</span></p>
+						<p class="include">【费用不含】</p>
+						<p class="spn"><span>1、各地往返昆明机票自理</span><span>2、全程中餐自理，不占床位早餐请自理</span><span>3、车辆的油费，路桥费，停车费用</span><span>4、全程用餐过程中客人所点的酒水费用</span><span>5、酒店电话费，洗衣费，购物等个人消费</span></p>
+					</div>
+					<div class="other">
+						<div class="insmall3">
+							<img src="images/其他说明.gif" alt="">
+							<div class="bar2"></div>
+						</div>
+						<p class="include">【活动时间】</p>
+						<p class="spn">2015年12月27日—2016年1月2日</p>
+						<p class="include">【租车说明】</p>
+								<p class="spn"><span>1、本行程车辆是由组织方向当地租车公司代租；租车费用由组织方承担。基本车型：起亚狮跑；车型升级需增加车费。</span><span>2、租车流程：</span><span>a. 拿车手续</span><span>驾车人需带齐本人身份证、驾驶证和信用卡壹张，凭上述证件办理租用手续；信用卡额度不得低于10000元人民币，租车的时候需刷</span><span>8000元的预授权（神州租车规定）。</span><span>b. 归还所租车辆，办理还车手续后，即解除8000元预授权。</span><span>c. 交通违章的处罚，还车时需要刷2000元的违章预授权；作为交通违章押金，在还车之后一个月内无违章的情况下自动解除冻结；如</span><span>有违章,驾车人自行处理违章并通知租车公司后，则解除2000元的预授权；或者请租车公司代为办理违章，费用从2000元预授权中扣除</span><span>，剩余的部分则解除预授。</span><span>d. 行车所产生的油费路桥费包括停车费均由车上客人均摊，另有约定的除外</span></p>
+								<p class="include">【注意事项】</p>
+								<p class="spn"><span>1、提前做好汽车检查和保养。提前准备好随车工具、备胎、润滑油等，检查户外装备是否齐全。遇旅途中出现意外事故，承办方有义</span><span>务和责任为客人协助解决相关问题，但不负事故责任和经济赔偿，如产生赔偿将按保险公司规定赔偿。如遇人力不可抗拒因素所产生的</span><span>费用由客人自理，如塌方、自然灾害等。</span><span>2、游客必须身体健康，游程中应遵守纪律，发扬团结互助的精神，必须听从领队劝说不可擅自行动，否则后果自负。</span><span>3、请自备好照相机、胶卷、防晒霜、爱好摄影、注意照看相关器材。</span><span>4、自驾车请保持在高速路上的车距，行驶中望车主自觉遵守相关交通规则，不随意超车，严禁在弯道处停车、听从领队安排协调。</span><span>5、长时间在户外活动，请戴上太阳镜，涂抹防晒霜以护肤；爱护环境，安全第一，全部垃圾带出景区。</span></p>
+					</div>
+					<div class="rate">
+						<div class="insmall4">
+							<img src="images/用户评论.gif" alt="">
+							<div class="bar2"></div>
+							<div class="rating1">
+								<div class="litm">
+									<p>全部点评（15）</p>
+								</div>
+								<div class="sid"><span>综合评价：</span>
+									<div class="star-beg">
+										<ul>
+											<li><img src="images/star空.png"class="vis1"><img src="images/star实.png"class="actual1"style="display:none"></li>
+											<li><img src="images/star空.png"class="vis2"><img src="images/star实.png"class="actual2"style="display:none"></li>
+											<li><img src="images/star空.png"class="vis3"><img src="images/star实.png"class="actual3"style="display:none"></li>
+											<li><img src="images/star空.png"class="vis4"><img src="images/star实.png"class="actual4"style="display:none"></li>
+											<li><img src="images/star空.png"class="vis5"><img src="images/star实.png"class="actual5"style="display:none"></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="lef">
+								<div class="lef1">
+									<img src="images/原图1.png" alt="">
+									<p>E29****329</p>
+								</div>
+								<div class="lef2">
+									<div class="dist">
+									<ul class="nav1">
+											<li>行程安排：满意 <img src="images/竖条.gif" class="leg"> </li>
+											<li>住宿餐食：满意<img src="images/竖条.gif" class="leg"></li>
+											<li>旅行交通：满意<img src="images/竖条.gif" class="leg"> </li>
+											<li class="result"> <span>综合评价：</span><div class="in-ner">
+
+												<img src="images/star空.png" class="rest1"><img src="images/star实.png" class="sick1"style="display:none">
+												<img src="images/star空.png" class="rest2"><img src="images/star实.png" class="sick2"style="display:none">
+												<img src="images/star空.png" class="rest3"><img src="images/star实.png" class="sick3"style="display:none">
+												<img src="images/star空.png" class="rest4"><img src="images/star实.png" class="sick4"style="display:none">
+												<img src="images/star空.png" class="rest5"><img src="images/star实.png" class="sick5"style="display:none">
+
+											</div></li>
+									</ul>
+									</div>
+									<div class="dff">
+										<p class="def">
+											18号就结束行程了，现在才来评价，总的来说还是不错的。
+										</p>
+										<img src="images/小图1.jpg" alt="">
+										<img src="images/小图2.png" alt="">
+										<p class="def1">2015-12-22 14:12     来自：爱自驾电脑版</p>
+									</div>
+								</div>
+							</div>
+							<div class="gif">
+								<div class="lef-box">
+									<img src="images/原图1.png" alt="">
+									<p>E29****329</p>
+								</div>
+								<div class="fin">
+									<div class="dist1">
+									<ul class="nav2">
+											<li>行程安排：满意 <img src="images/竖条.gif" class="leg1"> </li>
+											<li>住宿餐食：满意<img src="images/竖条.gif" class="leg1"></li>
+											<li>旅行交通：满意<img src="images/竖条.gif" class="leg1"> </li>
+											<li> <span> 综合评价：</span>
+												<div class="in-ner1">
+
+												<img src="images/star空.png" class="rew1"><img src="images/star实.png" class="still"style="display:none">
+												<img src="images/star空.png" class="rew2"><img src="images/star实.png" class="stil2"style="display:none">
+												<img src="images/star空.png" class="rew3"><img src="images/star实.png" class="stil3"style="display:none">
+												<img src="images/star空.png" class="rew4"><img src="images/star实.png" class="stil4"style="display:none">
+												<img src="images/star空.png" class="rew5"><img src="images/star实.png" class="stil5"style="display:none">
+
+
+											</div>
+											</li>
+									</ul>
+									</div>
+									<div class="ree">
+										<span>总体评论给90分！双十一活动的时候定的，价格很便宜，还会担心会不会住宿太偏僻。结果还好，第一天在水原这个地方，房间是</span><span>公寓。周围很多小商店和酒吧，可以不用非要在第一天行程的汗蒸那里吃饭，这点给大家点建议，后三晚在加阳的怀旧酒店。还可</span><span>以了，相对于这个价格不用太刻意挑剔。周围吃饭的非常方便。去明洞和北屋打车都要10000-14000的价钱。周围有地铁，我们基</span><span>本是早晨地铁出，晚上打车回。</span>
+										<div class="error">
+												<span class="change">行程安排：</span>
+												<p class="special"><span> 行程安排总体满意，第二天的购物关键的重点在于华克山庄，只有60分钟，那里虽然小 折扣真的便宜。娇韵诗免税基</span><span> 础又七折。我们基本是靠抢的回来，时间太紧张。乐天和新罗其实在网上买更方便 省的大包小包的拎着。直接去机场</span><span> 取，还有积分抵现使用。我订了1500人民币的东西，抵掉400多。乐天世界很好玩，可惜时间段。保存体力到最后再</span><span>战斗，才是王道。</span></p>
+										</div>
+										<div class="error2">
+											<span class="change">住宿餐食： </span>
+											<p class="special"><span>住宿第一天在水原（偏僻些），后三天在加阳怀旧酒店。周围有地铁加阳站，打车到明洞一万多点。还可以。周围吃饭 </span><span>的多，很方便。</span></p>
+										</div>
+										<div class="error3">
+											<span class="change">旅行交通：  </span>
+											<p class="special">交通基本我们是早晨地铁出 晚上打车回。首尔打车还可以把，不太堵。</p>
+										</div>
+										<img src="images/小图1.jpg"class="pic1">
+										<img src="images/小图2.png" class="pic1">
+										<p class="cat">2015-12-22 14:12     来自：爱自驾电脑版</p>
+										<div class="que">
+											<span class="lov">爱自驾客服回复：</span>
+											<p class="lov1"><span>尊敬的爱自驾会员，给你立减400这个订单之后，此特惠房型实际您成功预订的此客栈只收了您75元/晚，</span><span>您可以仔细对比下的，感谢您对爱自驾网的关注与支持，欢迎您下次预订4007-999-999，谢谢！祝您愉</span><span>
+											快！</span></p>
+											<p class="lov1">(2015-12-11 13:23:56)</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="fin2">
+								<div class="found">
+									<img src="images/原图2.png" alt="">
+									<p>E29****329</p>
+								</div>
+								<div class="right">
+									<div class="dist5">
+									<ul class="nav6">
+											<li>行程安排：满意 <img src="images/竖条.gif" class="leg2"> </li>
+											<li>住宿餐食：满意<img src="images/竖条.gif" class="leg2"></li>
+											<li>旅行交通：满意<img src="images/竖条.gif" class="leg2"> </li>
+											<li> <span> 综合评价：</span><div class="in-ner2">
+
+												<img src="images/star空.png" class="rad1"><img src="images/star实.png" class="sty1"style="display:none">
+												<img src="images/star空.png" class="rad2"><img src="images/star实.png" class="sty2"style="display:none">
+												<img src="images/star空.png" class="rad3"><img src="images/star实.png" class="sty3"style="display:none">
+												<img src="images/star空.png" class="rad4"><img src="images/star实.png" class="sty4"style="display:none">
+												<img src="images/star空.png" class="rad5"><img src="images/star实.png" class="sty5"style="display:none">
+
+											</div>
+											</li>
+									</ul>
+									</div>
+									<div class="ree6">
+										18号就结束行程了，现在才来评价，总的来说还是不错的。
+									</div>
+									<div class="error6">
+										<p><span class="change">行程安排：</span>很好</p>
+									</div>
+									<div class="error6">
+										<p><span class="change">住宿餐食：</span> 很好</p>
+
+									</div>
+									<div class="error6">
+										<p><span class="change">旅行交通：</span> 很好</p>
+
+									</div>
+									<p class="self">2015-12-22 14:12     来自：爱自驾电脑版</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="end">
+						<p><a href="">査看全部点评>></a></p>
+						<div id="con_list">
+							<div id="con_change">
+								<a  class="c_c_left1" ><img class="lft1" src="images/自驾团境内列表页_双指向左.png" alt=""></a>
+								<a  class="c_c_left2" ><img class="rig1" src="images/自驾团境内列表页_单指向左.png" alt=""></a>
+								<div class="listBox">
+									<ul>
+										<a href=""><li>1</li></a>
+										<a href=""><li>2</li></a>
+										<a href=""><li>3</li></a>
+										<a href=""><li>4</li></a>
+										<a href=""><li>5</li></a>
+										<a href=""><li>6</li></a>
+										<a href=""><li>7</li></a>
+										<a href=""><li>8</li></a>
+									</ul>
+								</div>
+
+								<a class="c_c_right2" ><img class="rig2" src="images/自驾团列表页箭头右.png" alt=""></a>
+								<a class="c_c_right1" ><img class="lft2" src="images/自驾团境内列表页_双指向右.png" alt=""></a>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="inner2"></div>
+				<div class="inner3"></div>
+				<div class="inner4"></div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div id="footer_top">
+			<div class="f_top_box">
+				<ul>
+					<a href=""><li class="lis1">民交通出版社</li></a>
+					<a href=""><li class="lis2">爱自驾</li></a>
+					<a href=""><li class="lis3">联系我们</li></a>
+					<a href=""><li class="lis4">友情链接</li></a>
+					<a href=""><li class="lis5">爱自驾品牌店</li></a>
+
+				</ul>
+			</div>
+		</div>
+		<div id="footer_bottom">
+			<div class="f_bottom_box">
+				<a href="">人民交通出版社股份有限公司</a>
+				<a class="foo_b_text" href="">京ICP备15018898号-1</a>
+			</div>
+		</div>
+
+
+	</div>
+
+	<script type="text/javascript">
+		 //行程简介费用明细其他说明用户评论  滚动
+		$(".nav-lity .lit").click(function(){
+			$(".insmall").css("display","block");
+			$(".page-large").css("display","block");
+			$(".spend").css("margin-top","0px");
+		})
+		$(".nav-lity .lit1").click(function(){
+			$(".insmall").css("display","none");
+			$(".page-large").css("display","none");
+			$(".spend").css("display","block");
+			$(".spend").css("margin-top","60px");
+			$(".other").css("margin-top","0px");
+		})
+		$(".nav-lity .lit2").click(function(){
+			$(".other").css("display","block");
+			$(".insmall").css("display","none");
+			$(".page-large").css("display","none");
+			$(".spend").css("display","none");
+			$(".spend").css("margin-top","60px");
+			$(".other").css("margin-top","60px");
+		})
+		$(".nav-lity .lit3").click(function(){
+			$(".insmall").css("display","none");
+			$(".page-large").css("display","none");
+			$(".spend").css("display","none");
+			$(".other").css("display","none");
+			$(".other").css("margin-top","60px");
+			$(".rate").css("margin-top","60px");
+		})
+	//行程简介费用明细其他说明用户评论  滚动
+	//第一天第二天第三天切换
+		$(".cicle4").click(function(){
+			$(".cicle4 img").attr("src","images/详情.gif");
+			$(".cicle3 img").attr("src","images/小圆.gif");
+			$(".YSlistt2").css("font-size","12px");
+			$(".YSlistt3").css("font-size","16px");
+			$(".stree").animate({"margin-top":"-720px"},1000);
+		})
+		$(".cicle3").click(function(){
+			$(".cicle3 img").attr("src","images/详情.gif");
+			$(".cicle4 img").attr("src","images/小圆.gif");
+			$(".YSlistt2").css("font-size","16px");
+			$(".YSlistt3").css("font-size","12px");
+			$(".stree").animate({"margin-top":0},1000);
+		})
+
+
+	//第一天第二天第三天切换
+		$(".img1").click(function(){
+			$(this).css("display","none");
+			$(".img2").css("display","block");
+		})
+		$(".img2").click(function(){
+			$(this).css("display","none");
+			$(".img1").css("display","block");
+		})
+		$(".add1").click(function(){
+			var x=$(".num1").text();
+			 x++;
+		 $(".num1").text(x);
+		})
+		$(".minus1").click(function(){
+			var x=$(".num1").text();
+			if(x>0){
+				x--;
+				$(".num1").text(x);
+			}else{
+				$(".num1").text(x);
+			}
+		})
+		$(".add2").click(function(){
+			var x=$(".num2").text();
+			 x++;
+		 $(".num2").text(x);
+		})
+		$(".minus2").click(function(){
+			var x=$(".num2").text();
+			if(x>0){
+				x--;
+				$(".num2").text(x);
+			}else{
+				$(".num2").text(x);
+			}
+		})
+		$(".active").click(function(){
+			$(".act1").animate({"margin-left":"-232px"},100);
+		})
+		$(".active2").click(function(){
+			$(".act1").animate({"margin-left":0},100)
+		})
+		var target = ["pic-01","pic-02","pic-03","pic-04","pic-05","pic-06","pic-07"];
+		$(".vis1").click(function(){
+			$(this).css("display","none");
+			$(".actual1").css("display","block");
+		})
+		$(".actual1").click(function(){
+			$(this).css("display","none");
+			$(".vis1").css("display","block");
+		})
+		$(".vis2").click(function(){
+			$(this).css("display","none");
+			$(".actual2").css("display","block");
+		})
+		$(".actual2").click(function(){
+			$(this).css("display","none");
+			$(".vis2").css("display","block");
+		})
+		$(".vis3").click(function(){
+			$(this).css("display","none");
+			$(".actual3").css("display","block");
+		})
+		$(".actual3").click(function(){
+			$(this).css("display","none");
+			$(".vis3").css("display","block");
+		})
+		$(".vis4").click(function(){
+			$(this).css("display","none");
+			$(".actual4").css("display","block");
+		})
+		$(".actual4").click(function(){
+			$(this).css("display","none");
+			$(".vis4").css("display","block");
+		})
+		$(".vis5").click(function(){
+			$(this).css("display","none");
+			$(".actual5").css("display","block");
+		})
+		$(".actual5").click(function(){
+			$(this).css("display","none");
+			$(".vis5").css("display","block");
+		})
+		$(".rest1").click(function(){
+			$(this).css("display","none");
+			$(".sick1").css("display","block");
+		})
+		$(".sick1").click(function(){
+			$(this).css("display","none");
+			$(".rest1").css("display","block");
+		})
+		$(".rest2").click(function(){
+			$(this).css("display","none");
+			$(".sick2").css("display","block");
+		})
+		$(".sick2").click(function(){
+			$(this).css("display","none");
+			$(".rest2").css("display","block");
+		})
+		$(".rest3").click(function(){
+			$(this).css("display","none");
+			$(".sick3").css("display","block");
+		})
+		$(".sick3").click(function(){
+			$(this).css("display","none");
+			$(".rest3").css("display","block");
+		})
+		$(".rest4").click(function(){
+			$(this).css("display","none");
+			$(".sick4").css("display","block");
+		})
+		$(".sick4").click(function(){
+			$(this).css("display","none");
+			$(".rest4").css("display","block");
+		})
+		$(".rest5").click(function(){
+			$(this).css("display","none");
+			$(".sick5").css("display","block");
+		})
+		$(".sick5").click(function(){
+			$(this).css("display","none");
+			$(".rest5").css("display","block");
+		})
+		$(".rew1").click(function(){
+			$(this).css("display","none");
+			$(".still").css("display","block");
+		})
+		$(".still").click(function(){
+			$(this).css("display","none");
+			$(".rew1").css("display","block");
+		})
+		$(".rew2").click(function(){
+			$(this).css("display","none");
+			$(".stil2").css("display","block");
+		})
+		$(".stil2").click(function(){
+			$(this).css("display","none");
+			$(".rew2").css("display","block");
+		})
+		$(".rew3").click(function(){
+			$(this).css("display","none");
+			$(".stil3").css("display","block");
+		})
+		$(".stil3").click(function(){
+			$(this).css("display","none");
+			$(".rew3").css("display","block");
+		})
+		$(".rew4").click(function(){
+			$(this).css("display","none");
+			$(".stil4").css("display","block");
+		})
+		$(".stil4").click(function(){
+			$(this).css("display","none");
+			$(".rew4").css("display","block");
+		})
+		$(".rew5").click(function(){
+			$(this).css("display","none");
+			$(".stil5").css("display","block");
+		})
+		$(".stil5").click(function(){
+			$(this).css("display","none");
+			$(".rew5").css("display","block");
+		})
+		$(".rad1").click(function(){
+			$(this).css("display","none");
+			$(".sty1").css("display","block");
+		})
+		$(".sty1").click(function(){
+			$(this).css("display","none");
+			$(".rad1").css("display","block");
+		})
+			$(".rad2").click(function(){
+			$(this).css("display","none");
+			$(".sty2").css("display","block");
+		})
+		$(".sty2").click(function(){
+			$(this).css("display","none");
+			$(".rad2").css("display","block");
+		})
+			$(".rad3").click(function(){
+			$(this).css("display","none");
+			$(".sty3").css("display","block");
+		})
+		$(".sty3").click(function(){
+			$(this).css("display","none");
+			$(".rad3").css("display","block");
+		})
+			$(".rad4").click(function(){
+			$(this).css("display","none");
+			$(".sty4").css("display","block");
+		})
+		$(".sty4").click(function(){
+			$(this).css("display","none");
+			$(".rad4").css("display","block");
+		})
+			$(".rad5").click(function(){
+			$(this).css("display","none");
+			$(".sty5").css("display","block");
+		})
+		$(".sty5").click(function(){
+			$(this).css("display","none");
+			$(".rad5").css("display","block");
+		})
+
+		$(".ect1").mouseenter(function(){
+			$(this).attr("src","images/tengxunweibo.jpg")
+		}).mouseleave(function(){
+			$(this).attr("src","images/1.gif")
+		})
+		$(".ect2").mouseenter(function(){
+			$(this).attr("src","images/weibo.jpg")
+		}).mouseleave(function(){
+			$(this).attr("src","images/2.gif")
+		})
+		$(".ect3").mouseenter(function(){
+			$(this).attr("src","images/kongjian.jpg")
+		}).mouseleave(function(){
+			$(this).attr("src","images/3.gif")
+		})
+		$(".ect4").mouseenter(function(){
+			$(this).attr("src","images/daxiang.jpg")
+		}).mouseleave(function(){
+			$(this).attr("src","images/4.gif")
+		})
+		$("#cin2 p").mouseenter(function(){
+			$(this).css("font-weight","bold");
+			$(".defin").css("display","block");
+		})
+		function fun(){
+			var x =1;//1
+			var num=0;
+			var y=1;//1
+			$(".c_c_left2").click(function(){
+				console.log(num)
+				num=num-48;
+				if(num>=-192){
+					$("#con_change ul").animate({"marginLeft":num},200)
+				}
+				else{
+					$("#con_change ul").animate({"marginLeft":-192},200)
+					num=-192;
+				}
+
+
+			});
+			$(".c_c_left1").click(function(){
+				$("#con_change ul").animate({"marginLeft":"0"},200)
+				num=0;
+
+			});
+			$(".c_c_right2").click(function(){
+				console.log(num)
+				num=num+48;
+				if(num>=-192&&num<=0){
+					$("#con_change ul").animate({"marginLeft":num},200)
+				}
+				else{
+					$("#con_change ul").animate({"marginLeft":0},200)
+					num=0;
+				}
+
+
+
+			});
+			$(".c_c_right1").click(function(){
+				$("#con_change ul").animate({"marginLeft":"-192"},200)
+				num=-192;
+			});
+		};
+		fun();
+		function fun1(){
+			var x =Number($(".c_c_t_b_right .num1").val())+1;
+			$(".c_c_t_b_right .pointL").click(function(){
+
+				x++;
+
+				if(x>4){
+					x=4;
+				}
+				$(".c_c_t_b_right .num1").text(x);
+			})
+			$(".c_c_t_b_right .pointR").click(function(){
+				x--;
+
+				if(x<=1){
+					x=1;
+				}
+				$(".c_c_t_b_right .num1").text(x);
+			})
+		}
+		fun1();
+	// 日历
+	$(document).ready(function() {
+
+				$('#calendar').fullCalendar({
+					// defaultDate: '2016-04-12',
+					editable: true,
+					eventLimit: true,
+					header: {
+						left: 'prev',
+						center: 'title',
+						right: 'next,',
+					},
+					events: [
+					{
+						title: 'Repea',
+						start: '2016-04-16T16:00:00'
+					},
+					{
+						title: 'Confe',
+						start: '2016-04-11',
+						// end: '2016-04-13'
+					},
+					{
+						title: '3259元',
+						start: '2016-04-20T07:00:00',
+					},
+					{
+						title: '3259元',
+						start: '2016-04-19T07:00:00'
+					},
+					{
+						title: '3259元',
+						start: '2016-04-21T07:00:00'
+					},
+					{
+						title: '3259元',
+						start: '2016-04-22T07:00:00'
+					},
+					{
+						title: '3259元',
+						start: '2016-04-23T07:00:00'
+					},
+					{
+						title: '3259元',
+						start: '2016-04-24T07:00:00'
+					},
+					{
+						title: '活动结束',
+						start: '2016-04-28'
+					}
+				],
+					dayClick: function() {
+						$(".YScapacity").css("display","block");
+			    },
+				// 	// buttonIcons:false,
+				// 	//today,month,agendaWeek,agendaDay
+				// 	// weekends: false,隐藏周末
+				});
+				var myEvent = ['2016-04-19','2016-04-20','2016-04-21','2016-04-22','2016-04-23','2016-04-24'];
+				// console.log(myEvent[0]);
+				function setMyEvent(){
+					for (var i = 0; i < myEvent.length; i++) {
+						var mySelector = '.fc-widget-content.fc-future' + '[data-date="' + myEvent[i] + '"]';
+						$(mySelector).css('position', 'relative').append('<img src="日历/images/jian-logo.png" class="jian-logo">').append('<span class="time-atonce">实时</span>');
+					}
+				}
+				setMyEvent();
+				// console.log($('.fc-today'));这个显示today的问题解决了，在5188行，搜索‘自己修改’
+				function setWeek() {    //修改week显示函数
+					$('.fc-day-header.fc-sun').text('日');
+					$('.fc-day-header.fc-mon').text('一');
+					$('.fc-day-header.fc-tue').text('二');
+					$('.fc-day-header.fc-wed').text('三');
+					$('.fc-day-header.fc-thu').text('四');
+					$('.fc-day-header.fc-fri').text('五');
+					$('.fc-day-header.fc-sat').text('六');
+				}
+				setWeek();
+				$('.fc-prev-button,.fc-next-button').click(function() {
+					setWeek();
+					setMyEvent();
+				});
+
+				function setTitle() {  //修改标题显示问题
+					var myMonthName = ['一月份','二月份','三月份','四月份','五月份','六月份','七月份','八月份','九月份','十月份','十一月份','十二月份'];
+					var myMonth = new Date();
+					var myMonthNum = Number(myMonth.getMonth());
+					var myYearNum = Number(myMonth.getFullYear());
+					// console.log(myYearNum);
+					$('.fc-center h2').text(myMonthName[myMonthNum] + myYearNum);
+					$('.fc-prev-button').click(function() {
+						if (myMonthNum > 0) {
+							myMonthNum --;
+							$('.fc-center h2').text(myMonthName[myMonthNum] + myYearNum);
+						} else {
+							myMonthNum = 11;
+							myYearNum --;
+							$('.fc-center h2').text(myMonthName[myMonthNum] + myYearNum);
+						}
+					});
+					$('.fc-next-button').click(function() {
+						if (myMonthNum > 10) {
+							myMonthNum = 0;
+							myYearNum ++;
+							$('.fc-center h2').text(myMonthName[myMonthNum] + myYearNum);
+						} else {
+							myMonthNum ++;
+							$('.fc-center h2').text(myMonthName[myMonthNum] + myYearNum);
+						}
+					});
+				}
+				setTitle();
+
+			});
+	// 日历
+	function RLalert(){
+		$(".YSlist1").click(function(){
+			var x = $(".YSlist2").text();
+			x--;
+			if(x<=0){
+				$(".YSlist2").text("0");
+			}else{
+				$(".YSlist2").text(x);
+			}
+		});
+		$(".YSlist3").click(function(){
+			var x = $(".YSlist2").text();
+			x++;
+			$(".YSlist2").text(x);
+		});
+		$(".YSlist5").click(function(){
+			var x = $(".YSlist2").text();
+			x--;
+			if(x<=0){
+				$(".YSlist6").text("0");
+			}else{
+				$(".YSlist6").text(x);
+			}
+		});
+		$(".YSlist7").click(function(){
+			var x = $(".YSlist6").text();
+			x++;
+			$(".YSlist6").text(x);
+		});
+	}
+	RLalert()
+	</script>
+</body>
+</html>
