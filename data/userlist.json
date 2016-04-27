@@ -1,37 +1,44 @@
 [
-	{
-		"Email":"297996582@qq.com",
-		"username":"小红",
-		"password":"111111",
-		"password2":"111111",
-		"invitation":"111111"
-	},
-	{
-		"Email":"297996583@qq.com",
-		"username":"小明",
-		"password":"111111",
-		"password2":"111111",
-		"invitation":"111111"
-	},
-	{
-		"Email":"297996584@qq.com",
-		"username":"小兰",
-		"password":"111111",
-		"password2":"111111",
-		"invitation":"111111"
-	},
-	{
-		"Email":"297996585@qq.com",
-		"username":"小强",
-		"password":"111111",
-		"password2":"111111",
-		"invitation":"111111"
-	},
-	{
-		"Email":"297996586@qq.com",
-		"username":"小花",
-		"password":"111111",
-		"password2":"111111",
-		"invitation":"111111"
-	}
+    {
+        "Email": "297996582@qq.com",
+        "username": "小红",
+        "password": "111111",
+        "password2": "111111",
+        "invitation": "111111"
+    },
+    {
+        "Email": "297996583@qq.com",
+        "username": "小明",
+        "password": "111111",
+        "password2": "111111",
+        "invitation": "111111"
+    },
+    {
+        "Email": "297996584@qq.com",
+        "username": "小兰",
+        "password": "222222",
+        "password2": "111111",
+        "invitation": "111111"
+    },
+    {
+        "Email": "297996585@qq.com",
+        "username": "小强",
+        "password": "111111",
+        "password2": "111111",
+        "invitation": "111111"
+    },
+    {
+        "Email": "297996586@qq.com",
+        "username": "小花",
+        "password": "111111",
+        "password2": "111111",
+        "invitation": "111111"
+    },
+    {
+        "Email": "1163758387@qq.com",
+        "username": "马福云",
+        "password": "12345678",
+        "password2": "12345678",
+        "invitation": "12345678"
+    }
 ]
